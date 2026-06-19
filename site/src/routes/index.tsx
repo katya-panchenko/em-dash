@@ -4,6 +4,14 @@ import {
   ResponsiveContainer,
   ScatterChart,
   Scatter,
+  BarChart,
+  Bar,
+  Cell,
+  RadarChart,
+  Radar,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
   XAxis,
   YAxis,
   ZAxis,
@@ -84,6 +92,14 @@ interface Buy {
   transferability?: string;
   recommended_action?: string;
   risks?: string;
+  features?: {
+    local_coverage_gap: number;
+    corroboration: number;
+    velocity: number;
+    commercial_proof: number;
+  };
+  transfer_dimensions?: Record<string, number>;
+  source_type_count?: number;
   evidence: Evidence[];
 }
 interface Cooling {
@@ -439,6 +455,7 @@ function BuysSection({
 
       <div className="min-w-0 flex-1">
         <BuyDetail buy={selected} />
+        <RankedBar buys={buys} selectedRank={selected?.rank ?? null} onSelect={onSelect} />
         <WhitespaceMap buys={buys} selectedRank={selected?.rank ?? null} onSelect={onSelect} />
         <CoolingPreview cooling={data.cooling} />
       </div>
@@ -518,6 +535,11 @@ function BuyDetail({ buy }: { buy: Buy | null }) {
           color={cb.color}
           hint="vs CH retailers"
         />
+      </div>
+
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <ScoreComposition buy={buy} />
+        <TransferRadarCard buy={buy} />
       </div>
 
       {buy.trickle_note && (
@@ -1085,6 +1107,167 @@ function Footer() {
         </a>
       </span>
     </footer>
+  );
+}
+
+// ---------- Ranked opportunities bar ----------
+function RankedBar({
+  buys,
+  selectedRank,
+  onSelect,
+}: {
+  buys: Buy[];
+  selectedRank: number | null;
+  onSelect: (r: number) => void;
+}) {
+  if (!buys.length) return null;
+  const rows = buys.map((o) => ({
+    label: truncate(o.name, 26),
+    rank: o.rank,
+    score: o.final_score,
+    fill: confidenceColor(o.confidence),
+  }));
+  return (
+    <section className="mt-12">
+      <div className="mb-3">
+        <h2 className="text-[18px] font-semibold" style={{ color: C.ink }}>
+          Ranked opportunities
+        </h2>
+        <p className="text-[12.5px]" style={{ color: C.inkSoft }}>
+          Opportunity score (0–1), colored by confidence. Click a bar to open it.
+        </p>
+      </div>
+      <div
+        className="rounded-lg"
+        style={{ height: Math.max(220, rows.length * 34 + 40), background: C.paper, border: `1px solid ${C.rule}` }}
+      >
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart layout="vertical" data={rows} margin={{ top: 12, right: 36, bottom: 8, left: 8 }}>
+            <CartesianGrid horizontal={false} stroke={C.rule} strokeDasharray="3 4" />
+            <XAxis
+              type="number"
+              domain={[0, Math.max(0.6, ...rows.map((r) => r.score)) * 1.1]}
+              tick={{ fill: C.inkSoft, fontSize: 11 }}
+              stroke={C.ruleStrong}
+            />
+            <YAxis
+              type="category"
+              dataKey="label"
+              width={160}
+              tick={{ fill: C.ink, fontSize: 11.5 }}
+              stroke={C.ruleStrong}
+            />
+            <Tooltip
+              cursor={{ fill: C.tint }}
+              content={({ active, payload }) => {
+                if (!active || !payload?.length) return null;
+                const p: any = payload[0].payload;
+                return (
+                  <div
+                    className="rounded-md shadow-sm"
+                    style={{ background: C.paper, border: `1px solid ${C.rule}`, padding: "6px 8px", fontSize: 12, color: C.ink }}
+                  >
+                    <div style={{ fontWeight: 600 }}>#{p.rank} {p.label}</div>
+                    <div style={{ color: C.inkSoft }}>Score {p.score.toFixed(2)}</div>
+                  </div>
+                );
+              }}
+            />
+            <Bar dataKey="score" radius={[0, 4, 4, 0]} isAnimationActive={false} onClick={(d: any) => d?.rank && onSelect(d.rank)}>
+              {rows.map((r, i) => (
+                <Cell
+                  key={i}
+                  fill={r.fill}
+                  fillOpacity={r.rank === selectedRank ? 1 : 0.65}
+                  stroke={r.rank === selectedRank ? C.ink : "transparent"}
+                  strokeWidth={r.rank === selectedRank ? 1.5 : 0}
+                  cursor="pointer"
+                />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Score composition (what's driving the score) ----------
+const FEATURE_META: { key: keyof NonNullable<Buy["features"]>; label: string; weight: string }[] = [
+  { key: "local_coverage_gap", label: "Local gap", weight: "35%" },
+  { key: "corroboration", label: "Corroboration", weight: "30%" },
+  { key: "velocity", label: "Velocity", weight: "20%" },
+  { key: "commercial_proof", label: "Commercial proof", weight: "15%" },
+];
+
+function ScoreComposition({ buy }: { buy: Buy }) {
+  if (!buy.features) return null;
+  const rows = FEATURE_META.map((f) => ({
+    label: `${f.label} · ${f.weight}`,
+    value: buy.features![f.key] ?? 0,
+  }));
+  return (
+    <div className="rounded-lg p-4" style={{ background: C.paper, border: `1px solid ${C.rule}` }}>
+      <div className="mb-1 text-[13px] font-semibold" style={{ color: C.ink }}>
+        What's driving the score
+      </div>
+      <p className="mb-2 text-[11.5px]" style={{ color: C.inkFaint }}>
+        Weighted composite features (0–1)
+      </p>
+      <div style={{ height: 168 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart layout="vertical" data={rows} margin={{ top: 4, right: 16, bottom: 4, left: 8 }}>
+            <CartesianGrid horizontal={false} stroke={C.rule} strokeDasharray="3 4" />
+            <XAxis type="number" domain={[0, 1]} tick={{ fill: C.inkSoft, fontSize: 10.5 }} stroke={C.ruleStrong} />
+            <YAxis type="category" dataKey="label" width={130} tick={{ fill: C.ink, fontSize: 11 }} stroke={C.ruleStrong} />
+            <Tooltip
+              cursor={{ fill: C.tint }}
+              formatter={(v: any) => [Number(v).toFixed(2), "value"]}
+            />
+            <Bar dataKey="value" radius={[0, 4, 4, 0]} fill={C.accent} isAnimationActive={false} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
+}
+
+// ---------- Transfer-dimension radar ----------
+const TRANSFER_DIM_LABEL: Record<string, string> = {
+  market_context_fit: "Market fit",
+  legitimacy_threshold: "Legitimacy",
+  buyer_risk_tolerance: "Buyer risk",
+  commercial_readiness: "Commercial",
+  durability_expectation: "Durability",
+};
+
+function TransferRadarCard({ buy }: { buy: Buy }) {
+  const dims = buy.transfer_dimensions ?? {};
+  const data = Object.entries(dims).map(([k, v]) => ({
+    dim: TRANSFER_DIM_LABEL[k] ?? k,
+    value: v,
+  }));
+  if (!data.length) return null;
+  return (
+    <div className="rounded-lg p-4" style={{ background: C.paper, border: `1px solid ${C.rule}` }}>
+      <div className="mb-1 text-[13px] font-semibold" style={{ color: C.ink }}>
+        CH transfer profile
+      </div>
+      <p className="mb-2 text-[11.5px]" style={{ color: C.inkFaint }}>
+        Five dimensions behind the transfer score (0–1)
+      </p>
+      <div style={{ height: 168 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart data={data} margin={{ top: 8, right: 24, bottom: 8, left: 24 }}>
+            <PolarGrid stroke={C.rule} />
+            <PolarAngleAxis dataKey="dim" tick={{ fill: C.inkSoft, fontSize: 10.5 }} />
+            <PolarRadiusAxis domain={[0, 1]} tick={false} axisLine={false} />
+            <Radar dataKey="value" stroke={C.info} fill={C.info} fillOpacity={0.25} isAnimationActive={false} />
+            <Tooltip formatter={(v: any) => [Number(v).toFixed(2), "score"]} />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
   );
 }
 

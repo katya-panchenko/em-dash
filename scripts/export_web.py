@@ -61,6 +61,15 @@ def build(scenario_id: str) -> dict:
             "luxury_trickle": o.get("luxury_trickle", False), "trickle_note": o.get("trickle_note"),
             "why_now": o.get("why_now"), "transferability": o.get("transferability"),
             "recommended_action": o.get("recommended_action"), "risks": o.get("risks"),
+            # score drivers (for charts): weighted composite features + transfer dims
+            "features": {
+                "local_coverage_gap": o.get("local_coverage_gap", 0.0),
+                "corroboration": o.get("corroboration", 0.0),
+                "velocity": o.get("velocity", 0.0),
+                "commercial_proof": o.get("commercial_proof", 0.0),
+            },
+            "transfer_dimensions": o.get("transfer_dimensions") or {},
+            "source_type_count": len({s["source_type"] for s in o["signals"]}),
             "evidence": _evidence(o),
         }
 

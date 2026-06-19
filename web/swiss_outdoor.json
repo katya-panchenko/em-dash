@@ -22,6 +22,20 @@
       "transferability": "EU availability via Bergfreunde and Salomon's DACH presence make CH transfer low-friction, though CH legitimacy rests on race/forum proof rather than UTMB results yet.",
       "recommended_action": "Buy a focused Salomon filter-flask range now and seed it via CH trail-running clubs ahead of summer season.",
       "risks": "Filter cleaning/longevity skepticism and a still-forming legitimacy base could slow conversion.",
+      "features": {
+        "local_coverage_gap": 1.0,
+        "corroboration": 1.0,
+        "velocity": 0.85,
+        "commercial_proof": 1.0
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.85,
+        "legitimacy_threshold": 0.7,
+        "buyer_risk_tolerance": 0.8,
+        "commercial_readiness": 0.9,
+        "durability_expectation": 0.7
+      },
+      "source_type_count": 3,
       "evidence": [
         {
           "source_type": "community_forum",
@@ -99,6 +113,20 @@
       "transferability": "CH-specific SwissHiking vocabulary shows real local resonance, but no top brand and only US stocking limit immediate channel readiness.",
       "recommended_action": "Pilot a small single-vessel filtration assortment tied to the broader filter-flask macro to test CH hut-hiking demand.",
       "risks": "Fragmented brand landscape and untested CH purchase intent raise stock-mismatch risk.",
+      "features": {
+        "local_coverage_gap": 1.0,
+        "corroboration": 1.0,
+        "velocity": 0.65,
+        "commercial_proof": 0.9
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.8,
+        "legitimacy_threshold": 0.6,
+        "buyer_risk_tolerance": 0.7,
+        "commercial_readiness": 0.75,
+        "durability_expectation": 0.65
+      },
+      "source_type_count": 3,
       "evidence": [
         {
           "source_type": "community_forum",
@@ -148,6 +176,20 @@
       "transferability": "Regulation-driven demand transfers strongly to environmentally-conscious DACH buyers with Arc'teryx as a credibility anchor.",
       "recommended_action": "Build out PFAS-free repairable shell assortment with repair-program tie-ins to close the partial CH gap.",
       "risks": "Higher price points and membrane-performance doubts could slow conversion among value buyers.",
+      "features": {
+        "local_coverage_gap": 0.667,
+        "corroboration": 1.0,
+        "velocity": 0.6,
+        "commercial_proof": 0.9
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.85,
+        "legitimacy_threshold": 0.75,
+        "buyer_risk_tolerance": 0.7,
+        "commercial_readiness": 0.85,
+        "durability_expectation": 0.85
+      },
+      "source_type_count": 3,
       "evidence": [
         {
           "source_type": "community_forum",
@@ -204,6 +246,20 @@
       "transferability": "Strong elite-race legitimacy transfers well to UTMB-centric CH culture, but no EU distribution is the main commercial bottleneck.",
       "recommended_action": "Secure EU/CH distribution rights for one race-proven challenger brand now to land assortment before the UTMB 2026 visibility wave.",
       "risks": "Distribution gaps and Salomon/On incumbency could blunt a late entry.",
+      "features": {
+        "local_coverage_gap": 1.0,
+        "corroboration": 1.0,
+        "velocity": 0.6,
+        "commercial_proof": 0.5
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.8,
+        "legitimacy_threshold": 0.85,
+        "buyer_risk_tolerance": 0.65,
+        "commercial_readiness": 0.5,
+        "durability_expectation": 0.7
+      },
+      "source_type_count": 4,
       "evidence": [
         {
           "source_type": "community_forum",
@@ -253,6 +309,20 @@
       "transferability": "EU availability and proven commercial demand transfer cleanly to weight-conscious DACH hikers despite slower CH search.",
       "recommended_action": "Expand sub-1kg framed-pack depth to close the partial Transa gap with clear durability messaging.",
       "risks": "Lower momentum and existing partial coverage limit upside versus full-gap categories.",
+      "features": {
+        "local_coverage_gap": 0.667,
+        "corroboration": 1.0,
+        "velocity": 0.7,
+        "commercial_proof": 1.0
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.75,
+        "legitimacy_threshold": 0.7,
+        "buyer_risk_tolerance": 0.65,
+        "commercial_readiness": 0.8,
+        "durability_expectation": 0.7
+      },
+      "source_type_count": 3,
       "evidence": [
         {
           "source_type": "community_forum",
@@ -316,6 +386,20 @@
       "transferability": "Already present in CH with strong race legitimacy, so transfer is proven but the white-space advantage is small.",
       "recommended_action": "Maintain and selectively deepen carbon-plate range where the 0.33 gap exists, focusing on 50km+ durability claims.",
       "risks": "Crowded incumbent shelf and durability concerns over plate longevity cap differentiation.",
+      "features": {
+        "local_coverage_gap": 0.333,
+        "corroboration": 1.0,
+        "velocity": 0.8,
+        "commercial_proof": 0.9
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.7,
+        "legitimacy_threshold": 0.8,
+        "buyer_risk_tolerance": 0.6,
+        "commercial_readiness": 0.85,
+        "durability_expectation": 0.6
+      },
+      "source_type_count": 3,
       "evidence": [
         {
           "source_type": "community_forum",
@@ -379,6 +463,20 @@
       "transferability": "Style diffusion to DACH is documented but legitimacy rests on fashion rather than race proof, and commercial proof is currently zero.",
       "recommended_action": "Stock entry technical-aesthetic apparel from Salomon/On and monitor KR-to-DACH diffusion before scaling.",
       "risks": "Fashion-led demand can fade fast and lacks the gear-review legitimacy CH buyers reward.",
+      "features": {
+        "local_coverage_gap": 0.5,
+        "corroboration": 1.0,
+        "velocity": 0.8,
+        "commercial_proof": 0.0
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.7,
+        "legitimacy_threshold": 0.45,
+        "buyer_risk_tolerance": 0.5,
+        "commercial_readiness": 0.3,
+        "durability_expectation": 0.6
+      },
+      "source_type_count": 3,
       "evidence": [
         {
           "source_type": "culture_context",
@@ -442,6 +540,20 @@
       "transferability": "Viewership surge is DACH-local and transfers well, but absence of brand and commercial proof keeps readiness low.",
       "recommended_action": "Pilot a curated women's gravel/trail gear capsule sized to the viewership trend and measure sell-through.",
       "risks": "No commercial proof yet and unclear assortment depth raise inventory-mismatch risk.",
+      "features": {
+        "local_coverage_gap": 0.5,
+        "corroboration": 0.5,
+        "velocity": 0.5,
+        "commercial_proof": 0.0
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.7,
+        "legitimacy_threshold": 0.55,
+        "buyer_risk_tolerance": 0.55,
+        "commercial_readiness": 0.35,
+        "durability_expectation": 0.65
+      },
+      "source_type_count": 2,
       "evidence": [
         {
           "source_type": "culture_context",
@@ -477,6 +589,20 @@
       "transferability": "Cross-category spillover is US-only so far with no CH/DACH signal, weakening near-term transfer confidence.",
       "recommended_action": "Test a small endurance-nutrition checkout assortment as an attachment to trail-running orders.",
       "risks": "US-only evidence and crowded local sports-nutrition shelves limit transferability.",
+      "features": {
+        "local_coverage_gap": 0.5,
+        "corroboration": 0.5,
+        "velocity": 0.5,
+        "commercial_proof": 0.0
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.55,
+        "legitimacy_threshold": 0.5,
+        "buyer_risk_tolerance": 0.6,
+        "commercial_readiness": 0.35,
+        "durability_expectation": 0.5
+      },
+      "source_type_count": 2,
       "evidence": [
         {
           "source_type": "culture_context",
@@ -512,6 +638,20 @@
       "transferability": "Family-outdoor growth is plausible for DACH but evidence is US-only with no commercial proof yet.",
       "recommended_action": "Trial a focused kids' trail footwear range aligned to family-hiking season to validate CH demand.",
       "risks": "Sizing complexity, short wear cycles, and US-only signal raise execution risk.",
+      "features": {
+        "local_coverage_gap": 0.5,
+        "corroboration": 0.5,
+        "velocity": 0.42,
+        "commercial_proof": 0.0
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.6,
+        "legitimacy_threshold": 0.45,
+        "buyer_risk_tolerance": 0.55,
+        "commercial_readiness": 0.35,
+        "durability_expectation": 0.65
+      },
+      "source_type_count": 2,
       "evidence": [
         {
           "source_type": "culture_context",

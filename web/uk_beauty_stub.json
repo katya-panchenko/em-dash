@@ -22,6 +22,20 @@
       "transferability": "Transfer 74/100 — strongest on commercial readiness, weakest on buyer risk tolerance.",
       "recommended_action": "Scout 2 EU-distributed brands; test-buy 20 units in Zürich + Bern stores.",
       "risks": "Weakest dimension: buyer risk tolerance.",
+      "features": {
+        "local_coverage_gap": 1.0,
+        "corroboration": 1.0,
+        "velocity": 0.85,
+        "commercial_proof": 0.9
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.7,
+        "legitimacy_threshold": 0.85,
+        "buyer_risk_tolerance": 0.5,
+        "commercial_readiness": 0.9,
+        "durability_expectation": 0.6
+      },
+      "source_type_count": 3,
       "evidence": [
         {
           "source_type": "community_forum",
@@ -78,6 +92,20 @@
       "transferability": "Transfer 74/100 — strongest on commercial readiness, weakest on buyer risk tolerance.",
       "recommended_action": "Scout 2 EU-distributed brands; test-buy 20 units in Zürich + Bern stores.",
       "risks": "Weakest dimension: buyer risk tolerance.",
+      "features": {
+        "local_coverage_gap": 1.0,
+        "corroboration": 1.0,
+        "velocity": 0.6,
+        "commercial_proof": 0.9
+      },
+      "transfer_dimensions": {
+        "market_context_fit": 0.7,
+        "legitimacy_threshold": 0.85,
+        "buyer_risk_tolerance": 0.5,
+        "commercial_readiness": 0.9,
+        "durability_expectation": 0.6
+      },
+      "source_type_count": 3,
       "evidence": [
         {
           "source_type": "community_forum",
