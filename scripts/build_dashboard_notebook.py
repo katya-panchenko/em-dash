@@ -70,12 +70,35 @@ cells = [
     ),
     code("display(report.graveyard_table(opps))"),
     md(
-        "## 7. Within-scenario reuse — category toggle\n"
+        "## 7. Cooling watchlist — *downward* early warning\n"
+        "Categories losing momentum in lead markets — a forward warning to hold reorders. Note the "
+        "lifecycle handoff: **hydration bladders cooling as filter-flask hydration rises.**"
+    ),
+    code(
+        "display(report.cooling_table(opps))\n"
+        "ew = report.early_watch_table(opps)\n"
+        "if not ew.empty:\n"
+        "    print('Too soon to call (luxury/runway-only, no mass uptake yet):')\n"
+        "    display(ew)"
+    ),
+    md(
+        "## 8. Trendsetter Brands to Watch\n"
+        "Configurable brand list (luxury + prestige outdoor) **re-ranked by a computed influence score** "
+        "(collab gravity · community authority · lead-time · cross-market spread · reference rank). "
+        "Answers the buyer's 'which brands should we scout?'"
+    ),
+    code(
+        "brands = report.load_brands(SCENARIO)\n"
+        "report.plot_trendsetters(brands); plt.show()\n"
+        "display(report.trendsetter_table(brands))"
+    ),
+    md(
+        "## 9. Within-scenario reuse — category toggle\n"
         "Change `CATEGORY` to `'day_hiking'` and re-run: same engine, different category."
     ),
     code("CATEGORY = 'trail_running'  # try 'day_hiking'\nreport.plot_ranked(opps, scn, category=CATEGORY); plt.show()"),
     md(
-        "## 8. Cross-scenario reuse — *config, not code*\n"
+        "## 10. Cross-scenario reuse — *config, not code*\n"
         "The whole product retargets to a new market/vertical by editing one YAML. Below: the live Swiss "
         "profile vs the empty template an analyst fills in."
     ),

@@ -41,6 +41,7 @@ class SearchTrendsConnector(Connector):
                     earlier = series.head(8).mean() or 1.0
                     interest[m] = {"level": float(recent), "accel": float(recent / earlier)}
                 for m, vals in interest.items():
+                    momentum = max(-1.0, min(1.0, vals["accel"] - 1.0))  # SIGNED: <0 means cooling
                     rows.append(
                         SignalRow(
                             source_type=self.source_type,
@@ -51,7 +52,8 @@ class SearchTrendsConnector(Connector):
                             signal_name=seed,
                             url=f"https://trends.google.com/trends/explore?q={seed.replace(' ', '%20')}&geo={_GEO[m]}",
                             signal_score=min(1.0, vals["level"] / 100.0),
-                            velocity=min(1.0, max(0.0, (vals["accel"] - 1.0))),
+                            velocity=min(1.0, abs(momentum)),
+                            momentum=momentum,
                             notes=f"12-mo interest level {vals['level']:.0f}, accel {vals['accel']:.2f}x",
                             observed_at="2026-06-19",
                             created_by_tool="search_trends/pytrends",

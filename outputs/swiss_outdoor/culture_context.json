@@ -52,12 +52,14 @@
     "keyword": "gorpcore diffusion",
     "signal_name": "Technical-aesthetic apparel (gorpcore)",
     "category": "day_hiking",
+    "brand": "And Wander / Goldwin",
     "signal_flavor": "geo_style_diffusion",
     "url": "https://www.voguebusiness.com",
     "notes": "gorpcore/technical aesthetic dominant in KR/CN street style; historically diffuses to DACH in ~12-18mo",
     "observed_at": "2026-06-19",
     "signal_score": 0.7,
-    "velocity": 0.62
+    "velocity": 0.62,
+    "momentum": 0.62
   },
   {
     "source_type": "culture_context",

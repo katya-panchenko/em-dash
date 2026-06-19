@@ -15,12 +15,17 @@ profile → retarget to any market, category, or industry.
 ## Summary
 
 We built the full **signal → score → transfer → action** pipeline, plus a notebook dashboard. It
-detects emerging outdoor opportunities by fusing four signal types, deduplicating them into candidate
+detects emerging outdoor opportunities by fusing five signal types, deduplicating them into candidate
 opportunities, scoring each with a transparent composite, judging Swiss/DACH transferability (Claude
 reasoning layer, with a deterministic fallback), and emitting ranked, actionable recommendations. The
 design directly targets the gap the incumbents (WGSN/Heuritech/EDITED — see
 [`docs/research-brief.md`](docs/research-brief.md)) leave: **outdoor-specific, CH/DACH transfer, and an
 explicit signal→buy conversion.**
+
+Beyond *rising* trends it also flags **cooling categories** (signed momentum → an early-warning
+watchlist, e.g. hydration bladders cooling as filter-flask hydration rises), and ranks **trendsetter
+brands** (luxury houses + prestige outdoor leaders) by a computed Brand Influence score — with a
+`luxury_runway` source + corroboration gate that separates real high→mass trickle-down from runway noise.
 
 ## How To Run
 
@@ -52,7 +57,9 @@ python -m src.pipeline --scenario config/scenarios/uk_beauty_stub.yaml
 - **Category:** trail running, day hiking (seed keywords in the profile).
 - **Sources:** `search_trends` (Google Trends), `community_forum` (Reddit), `competitor_assortment`
   (REI/Bergfreunde vs Transa/Ochsner/Galaxus), `culture_context` (viewership, emerging-business,
-  event-anticipation, geo-style-diffusion, segment-trend).
+  event-anticipation, geo-style-diffusion, segment-trend), `luxury_runway` (luxury×technical collabs,
+  runway → mass trickle-down).
+- **Trendsetter brands:** configurable list (luxury + prestige outdoor) in the scenario YAML.
 - **Languages:** English (+ German/CH local vocabulary via r/SwissHiking).
 - **External:** Google Trends, Reddit API, retailer sites, Claude API. All optional — committed seed
   snapshots make the demo reproducible offline.
@@ -62,7 +69,8 @@ python -m src.pipeline --scenario config/scenarios/uk_beauty_stub.yaml
 - **Dashboard:** [`notebooks/dashboard.ipynb`](notebooks/dashboard.ipynb) — ranked chart, hero card +
   transfer radar, blank-shelf table, whitespace map, graveyard, category toggle, cross-scenario beat.
 - **Report:** [`outputs/swiss_outdoor/summary.md`](outputs/swiss_outdoor/summary.md) (exec narrative).
-- **Structured data:** `outputs/swiss_outdoor/signals.csv`, `recommendations.csv`, `opportunities.json`.
+- **Structured data:** `outputs/swiss_outdoor/signals.csv`, `recommendations.csv`,
+  `cooling_watchlist.csv` (declining), `brand_influence.csv` (ranked trendsetters), `opportunities.json`.
 - **Visuals:** `outputs/swiss_outdoor/figures/` (ranked, whitespace, hero radar).
 
 ## Ranked Opportunities
@@ -81,6 +89,17 @@ Composite: `raw = 0.35·gap + 0.30·corroboration + 0.20·velocity + 0.15·comme
 **Graveyard (discarded as noise):** influencer trail-apparel collab (single source, fails legitimacy);
 desert-ultra race vest (single source; transfer 39 < 40, weak market-context fit); TikTok viral
 hydration gimmick (single source; transfer 36 < 40, weak legitimacy).
+
+## Downward Trends & Trendsetter Brands
+
+**Cooling watchlist (early warning)** — declining categories to hold reorders on, e.g. **hydration
+bladder packs** (cooling as filter-flask hydration rises — a lifecycle handoff), **maximalist
+stack-height shoes**, **legacy PFAS membrane hardshells**. See `cooling_watchlist.csv`.
+
+**Trendsetter brands to watch** (computed influence; see `brand_influence.csv`) — top of the ranking:
+**Salomon** (MM6 collab + community + shelf), **Arc'teryx** (Jil Sander collab + PFAS-free leadership),
+**On** (Loewe collab), then luxury houses by collab gravity. The **corroboration gate** parks a
+luxury-only decorative signal (embellished logo-mania) in "too soon to call" — proving the noise filter.
 
 ## Evidence Trail
 

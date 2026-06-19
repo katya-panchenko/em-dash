@@ -26,7 +26,14 @@ class SourceType(str, Enum):
     community_forum = "community_forum"  # early/accelerating demand + legitimacy
     search_trends = "search_trends"  # cross-market transfer window
     culture_context = "culture_context"  # leading indicators before search/sales
+    luxury_runway = "luxury_runway"  # premium/luxury origin → mass trickle-down + collab bridges
     trade_publication = "trade_publication"  # documented future connector (ISPO, …)
+
+
+class Direction(str, Enum):
+    rising = "rising"
+    flat = "flat"
+    declining = "declining"
 
 
 class SignalFlavor(str, Enum):
@@ -61,6 +68,7 @@ _SIGNAL_TYPE_BY_SOURCE = {
     SourceType.community_forum: "social",
     SourceType.competitor_assortment: "competitor",
     SourceType.culture_context: "web",
+    SourceType.luxury_runway: "web",
     SourceType.trade_publication: "web",
 }
 
@@ -92,8 +100,13 @@ class SignalRow(BaseModel):
 
     # per-signal strength (0..1); how the connector rated this individual signal
     signal_score: float = Field(default=0.5, ge=0.0, le=1.0)
-    velocity: Optional[float] = Field(default=None, ge=0.0, le=1.0)  # recency/acceleration
+    velocity: Optional[float] = Field(default=None, ge=0.0, le=1.0)  # magnitude of recency/acceleration
+    momentum: Optional[float] = Field(default=None, ge=-1.0, le=1.0)  # SIGNED direction: >0 rising, <0 cooling
     confidence: Optional[Confidence] = None
+
+    # luxury_runway evidence (high-fashion → mass trickle-down)
+    collab_partner: Optional[str] = None  # e.g. "Salomon" for a Margiela×Salomon collab
+    price_tier: Optional[str] = None  # luxury | premium | mass
 
     # set during clustering
     opportunity_id: Optional[str] = None
@@ -143,6 +156,17 @@ class Opportunity(BaseModel):
     velocity: float = 0.0
     commercial_proof: float = 0.0
 
+    # direction (score.py): signed momentum + lifecycle direction
+    momentum: float = 0.0  # -1..1
+    direction: Direction = Direction.flat
+    cooling_score: float = 0.0  # for declining opps (early-warning watchlist)
+
+    # brand influence / trickle-down (score.py + brand_influence.py)
+    trendsetter_backed: bool = False
+    top_brand: Optional[str] = None
+    luxury_trickle: bool = False  # luxury signal corroborated by a moving mass signal
+    early_watch: bool = False  # luxury-only, not yet corroborated → "too soon to call"
+
     # transfer (enrich.py)
     transfer_dimensions: Optional[TransferDimensions] = None
     transfer_score: float = 0.0  # 0..100
@@ -160,6 +184,7 @@ class Opportunity(BaseModel):
     transferability: Optional[str] = None
     recommended_action: Optional[str] = None
     risks: Optional[str] = None
+    trickle_note: Optional[str] = None
 
     @property
     def source_types(self) -> set[SourceType]:
@@ -172,6 +197,23 @@ class Opportunity(BaseModel):
     @property
     def evidence_urls(self) -> list[str]:
         return sorted({s.url for s in self.signals if s.url})
+
+    @property
+    def brands(self) -> list[str]:
+        return sorted({s.brand for s in self.signals if s.brand})
+
+
+# ─── Brand influence (trendsetter ranking) ───────────────────────────────────
+class BrandInfluence(BaseModel):
+    """A tracked trendsetter brand, scored 0..1 from signal behaviour."""
+
+    name: str
+    tier: str  # luxury | prestige_outdoor
+    influence_score: float = 0.0
+    components: dict[str, float] = Field(default_factory=dict)  # collab_gravity, community_authority, ...
+    markets: list[str] = Field(default_factory=list)
+    evidence_urls: list[str] = Field(default_factory=list)
+    note: Optional[str] = None  # "why a trendsetter" (enrich)
 
 
 # ─── Recommendation row (export) ─────────────────────────────────────────────

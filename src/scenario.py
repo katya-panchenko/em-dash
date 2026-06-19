@@ -39,6 +39,11 @@ class Category(BaseModel):
     seeds: list[str] = Field(default_factory=list)
 
 
+class TrendsetterBrand(BaseModel):
+    name: str
+    tier: str = "prestige_outdoor"  # luxury | prestige_outdoor
+
+
 class TransferProfile(BaseModel):
     discard_threshold: float = 40.0
     dimensions: dict[str, float] = Field(default_factory=dict)
@@ -65,6 +70,7 @@ class ScenarioProfile(BaseModel):
     categories: list[Category] = Field(default_factory=list)
 
     legitimacy_markers: list[str] = Field(default_factory=list)
+    trendsetter_brands: list[TrendsetterBrand] = Field(default_factory=list)
     transfer_profile: TransferProfile = Field(default_factory=TransferProfile)
 
     # which connectors to run for this scenario

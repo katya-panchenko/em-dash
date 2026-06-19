@@ -17,11 +17,12 @@ from pathlib import Path
 
 import pandas as pd
 
+from src import brand_influence
 from src.dedup import cluster_signals
 from src.enrich import enrich, exec_summary
 from src.schema import RecommendationRow, SignalRow
 from src.scenario import load_scenario
-from src.score import compute_features, finalize, rank_opportunities
+from src.score import compute_features, cooling_watch, early_watch_list, finalize, rank_opportunities
 
 
 def _load_cached_signals(scenario_id: str, out_root: str = "outputs") -> list[SignalRow]:
@@ -60,13 +61,16 @@ def run(scenario_path: str, use_llm: bool = True) -> dict:
             f"python -m src.collect_offline --scenario {scenario_path}"
         )
 
+    brands = brand_influence.compute(signals, scenario)
     opps = cluster_signals(signals)
     for o in opps:
-        compute_features(o, scenario)
+        compute_features(o, scenario, brands)
     llm_summary = enrich(opps, scenario, use_llm=use_llm)
     for o in opps:
         finalize(o, scenario)
     ranked = rank_opportunities(opps)
+    cooling = cooling_watch(opps)
+    early = early_watch_list(opps)
     summary = exec_summary(opps, scenario, llm_summary)
 
     # ── exports ──
@@ -83,23 +87,58 @@ def run(scenario_path: str, use_llm: bool = True) -> dict:
     ]
     pd.DataFrame(recs).to_csv(out_dir / "recommendations.csv", index=False)
 
+    # cooling watchlist (declining — early warning)
+    cool = [
+        {
+            "rank": i + 1, "opportunity": o.name, "direction": o.direction.value,
+            "cooling_score": o.cooling_score, "momentum": o.momentum,
+            "markets": "; ".join(o.markets), "why_cooling": o.why_now or "",
+            "recommended_action": o.recommended_action or "", "evidence_urls": "; ".join(o.evidence_urls),
+        }
+        for i, o in enumerate(cooling)
+    ]
+    pd.DataFrame(cool).to_csv(out_dir / "cooling_watchlist.csv", index=False)
+
+    # trendsetter brand influence
+    brand_rows = [
+        {"rank": i + 1, "brand": b.name, "tier": b.tier, "influence_score": b.influence_score,
+         **b.components, "markets": "; ".join(b.markets), "note": b.note or ""}
+        for i, b in enumerate(brands)
+    ]
+    pd.DataFrame(brand_rows).to_csv(out_dir / "brand_influence.csv", index=False)
+    (out_dir / "brand_influence.json").write_text(
+        json.dumps([b.model_dump(mode="json") for b in brands], indent=2, ensure_ascii=False)
+    )
+
     (out_dir / "opportunities.json").write_text(
         json.dumps([o.model_dump(mode="json") for o in opps], indent=2, ensure_ascii=False)
     )
     (out_dir / "summary.md").write_text(f"# {scenario.display_name} — Opportunity Summary\n\n{summary}\n")
 
     discarded = [o for o in opps if o.discarded]
-    print(f"\n{len(signals)} signals → {len(opps)} opportunities → {len(ranked)} surfaced, {len(discarded)} discarded")
-    print(f"Artifacts in {out_dir}/ : signals.csv, recommendations.csv, opportunities.json, summary.md")
-    print("\nTop opportunities:")
+    print(f"\n{len(signals)} signals → {len(opps)} opportunities → {len(ranked)} buys, "
+          f"{len(cooling)} cooling, {len(early)} early-watch, {len(discarded)} discarded")
+    print(f"Artifacts in {out_dir}/ : recommendations.csv, cooling_watchlist.csv, brand_influence.csv, opportunities.json, summary.md")
+    print("\nTop buy opportunities:")
     for i, o in enumerate(ranked[:5], 1):
-        print(f"  {i}. {o.name}  final={o.final_score}  transfer={o.transfer_score:.0f}/100  conf={o.confidence.value}")
-    if discarded:
-        print("\nGraveyard (discarded):")
-        for o in discarded:
-            print(f"  ✗ {o.name} — {o.discard_reason}")
+        badge = " ⭐trendsetter" if o.trendsetter_backed else ""
+        badge += " 💎trickle" if o.luxury_trickle else ""
+        print(f"  {i}. {o.name}  final={o.final_score}  transfer={o.transfer_score:.0f}/100  conf={o.confidence.value}{badge}")
+    if cooling:
+        print("\nCooling watchlist (declining — hold reorders):")
+        for o in cooling:
+            print(f"  ↓ {o.name}  momentum={o.momentum:+.2f}  cooling={o.cooling_score:.2f}")
+    if early:
+        print("\nEarly / too-soon-to-call (luxury-only, no mass uptake):")
+        for o in early:
+            print(f"  ? {o.name} — {o.trickle_note or ''}")
+    if brands:
+        print("\nTrendsetter brands to watch (top 5):")
+        for b in brands[:5]:
+            print(f"  {b.influence_score:.2f}  {b.name} [{b.tier}]")
 
-    return {"scenario": scenario, "opportunities": opps, "ranked": ranked, "summary": summary}
+    return {"scenario": scenario, "opportunities": opps, "ranked": ranked,
+            "cooling": cooling, "brands": brands, "summary": summary}
 
 
 def main() -> None:

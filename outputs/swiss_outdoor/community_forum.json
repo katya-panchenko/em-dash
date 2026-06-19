@@ -126,6 +126,52 @@
     "notes": "influencer collab hype, no race/gear-review proof",
     "observed_at": "2026-06-19",
     "signal_score": 0.3,
-    "velocity": 0.22
+    "velocity": 0.22,
+    "momentum": 0.22
+  },
+  {
+    "source_type": "community_forum",
+    "source": "r/Ultralight",
+    "market": "US",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "bladder vs soft flask",
+    "signal_name": "Hydration bladder packs",
+    "category": "trail_running",
+    "url": "https://reddit.com/r/Ultralight",
+    "notes": "threads shifting away from bladders toward soft flasks / filter-in-cap",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.45,
+    "velocity": 0.4,
+    "momentum": -0.4
+  },
+  {
+    "source_type": "community_forum",
+    "source": "r/trailrunning",
+    "market": "US",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "stack height too much",
+    "signal_name": "Maximalist stack-height shoes",
+    "category": "trail_running",
+    "url": "https://reddit.com/r/trailrunning",
+    "notes": "growing 'back to lower stack / ground feel' sentiment",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.45,
+    "velocity": 0.3,
+    "momentum": -0.3
+  },
+  {
+    "source_type": "community_forum",
+    "source": "r/Ultralight",
+    "market": "US",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "PFAS membrane phase out",
+    "signal_name": "Legacy PFAS membrane hardshells",
+    "category": "day_hiking",
+    "url": "https://reddit.com/r/Ultralight",
+    "notes": "users actively avoiding legacy PFAS membranes",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.4,
+    "velocity": 0.25,
+    "momentum": -0.25
   }
 ]

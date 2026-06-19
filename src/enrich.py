@@ -81,6 +81,19 @@ def deterministic_dimensions(opp: Opportunity, scenario: ScenarioProfile) -> Tra
     )
 
 
+def _trickle_note(opp: Opportunity) -> str | None:
+    text = _text(opp)
+    functional = any(k in text for k in ("technical", "functional", "fabric", "membrane", "utility", "shell", "performance", "gorpcore"))
+    collabs = sorted({s.collab_partner for s in opp.signals if s.collab_partner})
+    if opp.early_watch:
+        return "Runway/luxury-only with no mass-market uptake yet — decorative, not functional; too soon to call."
+    if opp.luxury_trickle:
+        bridge = f" collab bridge ({', '.join(collabs)})" if collabs else ""
+        kind = "functional/technical" if functional else "aesthetic"
+        return f"Luxury→mass trickle in motion:{bridge}; {kind} and corroborated by rising mass demand → likely to reach CH."
+    return None
+
+
 def _narrative(opp: Opportunity, scenario: ScenarioProfile) -> dict:
     dims = opp.transfer_dimensions
     origin = [m for m in opp.markets if m in scenario.reference_markets]
@@ -88,7 +101,32 @@ def _narrative(opp: Opportunity, scenario: ScenarioProfile) -> dict:
     top = max(dims.model_fields, key=lambda d: getattr(dims, d))
     weak = min(dims.model_fields, key=lambda d: getattr(dims, d))
     target = scenario.target_market
+    trickle = _trickle_note(opp)
 
+    # ── declining → cooling / early-warning framing (no buy) ──
+    if opp.direction.value == "declining":
+        why_now = (
+            f"Cooling: search/community momentum is negative ({opp.momentum:+.0%}) in "
+            f"{', '.join(origin) or 'lead markets'}, corroborated by {len(opp.source_types)} source types. "
+            f"Lead-market cooling typically reaches {target}/DACH next."
+        )
+        transferability = f"Cooling score {opp.cooling_score:.2f} — a forward warning for the {target} assortment."
+        action = "Hold reorders and monitor for clearance timing; do not expand this line."
+        risks = "Decline may stall or reverse; confirm against sell-through before markdowns."
+        return {"why_now": why_now, "transferability": transferability, "recommended_action": action,
+                "risks": risks, "trickle_note": trickle}
+
+    # ── early-watch (luxury-only) → not a buy yet ──
+    if opp.early_watch:
+        return {
+            "why_now": f"Luxury/runway signal only ({', '.join(opp.brands) or 'designer'}), no mass-market corroboration yet.",
+            "transferability": "Too early to call — watch for a rising search/community signal before acting.",
+            "recommended_action": "Watch only; revisit if mass demand starts moving.",
+            "risks": "Runway trends often stay niche; high chance it never reaches mass outdoor.",
+            "trickle_note": trickle,
+        }
+
+    # ── rising buy ──
     why_now = (
         f"Rising in {', '.join(origin) or 'origin markets'} (velocity {opp.velocity:.0%}); "
         f"{opp.coverage_status.value.replace('_', ' ')} on {target}/DACH shelves; "
@@ -104,12 +142,15 @@ def _narrative(opp: Opportunity, scenario: ScenarioProfile) -> dict:
         action = "Request supplier samples; monitor CH search + competitor shelves for one quarter."
     else:
         action = "Monitor only — insufficient proof for a CH buy."
+    if opp.trendsetter_backed:
+        action += f" Trendsetter-backed ({opp.top_brand})."
     risks = f"Weakest dimension: {_DIM_LABELS[weak]}."
     if opp.commercial_proof == 0:
         risks += " No reference-retailer / EU distribution proof yet."
     if len(opp.source_types) < 2:
         risks += " Single-source signal — needs corroboration."
-    return {"why_now": why_now, "transferability": transferability, "recommended_action": action, "risks": risks}
+    return {"why_now": why_now, "transferability": transferability, "recommended_action": action,
+            "risks": risks, "trickle_note": trickle}
 
 
 # ─── Claude path ─────────────────────────────────────────────────────────────
@@ -135,6 +176,11 @@ def _claude_enrich(opps: list[Opportunity], scenario: ScenarioProfile) -> dict |
             "category": o.category,
             "markets": o.markets,
             "source_types": [t.value for t in o.source_types],
+            "direction": o.direction.value,
+            "momentum": o.momentum,
+            "luxury_trickle": o.luxury_trickle,
+            "early_watch": o.early_watch,
+            "top_brand": o.top_brand,
             "coverage_status": o.coverage_status.value,
             "local_coverage_gap": o.local_coverage_gap,
             "commercial_proof": o.commercial_proof,
@@ -150,12 +196,18 @@ def _claude_enrich(opps: list[Opportunity], scenario: ScenarioProfile) -> dict |
         f"You are a buying analyst for {scenario.display_name} (target market {scenario.target_market}).\n"
         f"For EACH opportunity, score these transfer dimensions 0..1 (how well a global trend transfers to "
         f"{scenario.target_market}/DACH): {dims_help}. Then write a one-sentence why_now, a transferability "
-        f"note, a concrete recommended_action (test/buy/monitor with specifics), and risks.\n"
+        f"note, a concrete recommended_action, and risks.\n"
+        f"IMPORTANT framing by field:\n"
+        f"- If direction=='declining': why_now explains why it's COOLING; recommended_action is HOLD/monitor "
+        f"(cut reorders / clearance timing), NEVER a buy.\n"
+        f"- If luxury_trickle==true: add a trickle_note on whether it's functional/technical vs decorative and "
+        f"name the collab bridge.\n"
+        f"- If early_watch==true: it's luxury/runway-only with no mass uptake — recommended_action is WATCH only.\n"
         f"Legitimacy markers that matter: {scenario.legitimacy_markers}.\n"
-        f"Keep why_now / transferability / recommended_action / risks to ONE concise sentence each.\n"
+        f"Keep every text field to ONE concise sentence.\n"
         f"Return STRICT JSON only (no prose, no markdown fence): {{\"opportunities\":[{{\"id\":..,"
         f"\"dimensions\":{{..5 keys..}},\"why_now\":..,\"transferability\":..,\"recommended_action\":..,"
-        f"\"risks\":..}}],\"summary\":\"<3-5 sentence exec summary>\"}}\n\n"
+        f"\"risks\":..,\"trickle_note\":..(or null)}}],\"summary\":\"<3-5 sentence exec summary>\"}}\n\n"
         f"Opportunities:\n{json.dumps(payload, ensure_ascii=False)}"
     )
     client = anthropic.Anthropic()
@@ -210,10 +262,12 @@ def enrich(opps: list[Opportunity], scenario: ScenarioProfile, use_llm: bool = T
             opp.transferability = rec.get("transferability")
             opp.recommended_action = rec.get("recommended_action")
             opp.risks = rec.get("risks")
+            opp.trickle_note = rec.get("trickle_note") or _trickle_note(opp)
         else:
             n = _narrative(opp, scenario)
             opp.why_now, opp.transferability = n["why_now"], n["transferability"]
             opp.recommended_action, opp.risks = n["recommended_action"], n["risks"]
+            opp.trickle_note = n.get("trickle_note")
 
     if llm_data and llm_data.get("_summary"):
         return llm_data["_summary"]

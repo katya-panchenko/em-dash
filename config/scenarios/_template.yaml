@@ -50,6 +50,12 @@ categories:
 legitimacy_markers:
   - e.g. clinical proof (skincare) / race results (outdoor) / pro reviews
 
+# trendsetter brands to watch — re-ranked by computed influence score (brand_influence.py).
+# tier: luxury (trickle-down driver) | prestige_outdoor (category leader). Optional.
+trendsetter_brands:
+  - {name: Leader Brand A, tier: prestige_outdoor}
+  - {name: Luxury House B, tier: luxury}
+
 # 6. TRANSFER PROFILE (how a global trend is judged for YOUR market) ───────────
 # Dimensions are generic; the WEIGHTS encode your market's priorities.
 # Weights are normalized to sum to 1 automatically.
@@ -68,6 +74,7 @@ enabled_sources:
   - community_forum
   - competitor_assortment
   - culture_context
+  - luxury_runway          # premium/luxury origin → trickle-down + brand collabs
 
 # pitch labels shown in the dashboard for this scenario (optional)
 ui_labels:

@@ -11,14 +11,25 @@ before enrichment; finalize() applies transfer_score + discard rules after.
 
 from __future__ import annotations
 
-from src.schema import Confidence, CoverageStatus, Opportunity, SourceType
+import re
+
+from src.schema import BrandInfluence, Confidence, CoverageStatus, Direction, Opportunity, SourceType
 from src.scenario import ScenarioProfile
 
 WEIGHTS = {"local_coverage_gap": 0.35, "corroboration": 0.30, "velocity": 0.20, "commercial_proof": 0.15}
+_MASS = {SourceType.search_trends, SourceType.community_forum}
 
 
-def compute_features(opp: Opportunity, scenario: ScenarioProfile) -> None:
-    """Set deterministic features, coverage_status, raw_score, confidence."""
+def _sig_mentions(s, name: str) -> bool:
+    """Word-boundary brand match (so 'On' doesn't match 'carbON')."""
+    pat = re.compile(r"\b" + re.escape(name) + r"\b", re.IGNORECASE)
+    return any(field and pat.search(field) for field in (s.brand, s.collab_partner, s.source, s.notes))
+
+
+def compute_features(
+    opp: Opportunity, scenario: ScenarioProfile, brands: list[BrandInfluence] | None = None
+) -> None:
+    """Set deterministic features, direction, brand/trickle flags, raw_score, confidence."""
     local_names = {c.name.lower() for c in scenario.local_competitors}
     ref_names = {r.name.lower() for r in scenario.reference_retailers}
     comp = [s for s in opp.signals if s.source_type == SourceType.competitor_assortment]
@@ -58,6 +69,44 @@ def compute_features(opp: Opportunity, scenario: ScenarioProfile) -> None:
         3,
     )
 
+    # ── direction (signed momentum) ──
+    weighted = [(s.momentum if s.momentum is not None else (s.velocity or 0.0), s.signal_score) for s in opp.signals]
+    wsum = sum(w for _, w in weighted) or 1.0
+    opp.momentum = round(sum(m * w for m, w in weighted) / wsum, 3)
+    if opp.momentum > 0.10:
+        opp.direction = Direction.rising
+    elif opp.momentum < -0.10:
+        opp.direction = Direction.declining
+    else:
+        opp.direction = Direction.flat
+
+    # cooling score (early-warning for declining opps; stronger if lead markets cool)
+    if opp.direction == Direction.declining:
+        origin_cooling = any(
+            s.market in scenario.reference_markets and (s.momentum or 0.0) < 0 for s in opp.signals
+        )
+        opp.cooling_score = round(abs(opp.momentum) * max(opp.corroboration, 0.3) * (1.0 if origin_cooling else 0.6), 3)
+
+    # ── luxury trickle-down corroboration gate ──
+    has_luxury = any(s.source_type == SourceType.luxury_runway for s in opp.signals)
+    has_mass_rising = any(
+        s.source_type in _MASS and ((s.momentum if s.momentum is not None else s.velocity) or 0.0) > 0
+        for s in opp.signals
+    )
+    if has_luxury and has_mass_rising:
+        opp.luxury_trickle = True
+    elif has_luxury and opp.source_types == {SourceType.luxury_runway}:
+        opp.early_watch = True  # runway-only → too soon to call (the noise filter)
+
+    # ── trendsetter brand backing (+ small lead boost) ──
+    if brands:
+        cands = [b for b in brands if b.influence_score >= 0.5 and any(_sig_mentions(s, b.name.lower()) for s in opp.signals)]
+        if cands:
+            top = max(cands, key=lambda b: b.influence_score)
+            opp.trendsetter_backed = True
+            opp.top_brand = top.name
+            opp.raw_score = round(min(1.0, opp.raw_score + 0.05), 3)
+
     # confidence
     if n_types >= 3 and opp.local_coverage_gap >= 0.5:
         opp.confidence = Confidence.high
@@ -68,8 +117,14 @@ def compute_features(opp: Opportunity, scenario: ScenarioProfile) -> None:
 
 
 def finalize(opp: Opportunity, scenario: ScenarioProfile) -> None:
-    """Apply transfer_score (from enrich) → final_score, then discard rules."""
+    """Apply transfer_score (from enrich) → final_score, then discard rules.
+
+    Declining + early-watch opps are routed to their own buckets and skip the
+    buy-discard rules (they are not buy candidates)."""
     opp.final_score = round(opp.raw_score * (opp.transfer_score / 100.0), 3)
+
+    if opp.early_watch or opp.direction == Direction.declining:
+        return
 
     threshold = scenario.transfer_profile.discard_threshold
     reasons: list[str] = []
@@ -94,6 +149,20 @@ def _weakest_dimension(opp: Opportunity, scenario: ScenarioProfile) -> str | Non
 
 
 def rank_opportunities(opps: list[Opportunity]) -> list[Opportunity]:
-    """Surviving opportunities sorted by final_score desc."""
-    live = [o for o in opps if not o.discarded]
+    """Surviving RISING buy candidates, sorted by final_score desc."""
+    live = [
+        o for o in opps
+        if not o.discarded and not o.early_watch and o.direction != Direction.declining
+    ]
     return sorted(live, key=lambda o: o.final_score, reverse=True)
+
+
+def cooling_watch(opps: list[Opportunity]) -> list[Opportunity]:
+    """Declining opps (≥2 source types) for the early-warning watchlist."""
+    cooling = [o for o in opps if o.direction == Direction.declining and len(o.source_types) >= 2]
+    return sorted(cooling, key=lambda o: o.cooling_score, reverse=True)
+
+
+def early_watch_list(opps: list[Opportunity]) -> list[Opportunity]:
+    """Luxury-only 'too soon to call' opps (runway signal, no mass corroboration yet)."""
+    return [o for o in opps if o.early_watch]

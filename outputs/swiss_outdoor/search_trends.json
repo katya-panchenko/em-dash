@@ -235,6 +235,67 @@
     "notes": "desert-ultra niche; poor alpine fit",
     "observed_at": "2026-06-19",
     "signal_score": 0.55,
-    "velocity": 0.4
+    "velocity": 0.4,
+    "momentum": 0.4
+  },
+  {
+    "source_type": "search_trends",
+    "source": "Google Trends",
+    "market": "US",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "hydration bladder pack",
+    "signal_name": "Hydration bladder packs",
+    "category": "trail_running",
+    "url": "https://trends.google.com/trends/explore?q=hydration%20bladder&geo=US",
+    "notes": "declining as soft-flask / filter-flask setups rise (lifecycle handoff)",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.5,
+    "velocity": 0.35,
+    "momentum": -0.35
+  },
+  {
+    "source_type": "search_trends",
+    "source": "Google Trends",
+    "market": "UK",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "hydration bladder pack",
+    "signal_name": "Hydration bladder packs",
+    "category": "trail_running",
+    "url": "https://trends.google.com/trends/explore?q=hydration%20bladder&geo=GB",
+    "notes": "cooling in UK too",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.45,
+    "velocity": 0.3,
+    "momentum": -0.3
+  },
+  {
+    "source_type": "search_trends",
+    "source": "Google Trends",
+    "market": "US",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "maximalist stack shoes",
+    "signal_name": "Maximalist stack-height shoes",
+    "category": "trail_running",
+    "url": "https://trends.google.com/trends/explore?q=max%20stack%20running&geo=US",
+    "notes": "interest cooling as runners move back to moderate stack",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.5,
+    "velocity": 0.28,
+    "momentum": -0.28
+  },
+  {
+    "source_type": "search_trends",
+    "source": "Google Trends",
+    "market": "DE",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "PFAS membrane hardshell",
+    "signal_name": "Legacy PFAS membrane hardshells",
+    "category": "day_hiking",
+    "url": "https://trends.google.com/trends/explore?q=goretex%20hardshell&geo=DE",
+    "notes": "declining in DACH as PFAS-free regulation + alternatives rise",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.45,
+    "velocity": 0.32,
+    "momentum": -0.32
   }
 ]

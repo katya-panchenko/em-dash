@@ -66,6 +66,26 @@ legitimacy_markers:
   - thru-hiker gear surveys
   - gear-review flair (not influencer collabs alone)
 
+# Trendsetter brands to watch — re-ranked by computed influence score (brand_influence.py).
+# Two tiers: luxury houses (trickle-down drivers) + prestige outdoor leaders (category-setters).
+trendsetter_brands:
+  - {name: "Arc'teryx", tier: prestige_outdoor}
+  - {name: Salomon, tier: prestige_outdoor}
+  - {name: "On", tier: prestige_outdoor}
+  - {name: Hoka, tier: prestige_outdoor}
+  - {name: Patagonia, tier: prestige_outdoor}
+  - {name: And Wander, tier: prestige_outdoor}
+  - {name: Goldwin, tier: prestige_outdoor}
+  - {name: Norda, tier: prestige_outdoor}
+  - {name: Satisfy, tier: prestige_outdoor}
+  - {name: Prada, tier: luxury}
+  - {name: Miu Miu, tier: luxury}
+  - {name: Maison Margiela, tier: luxury}
+  - {name: Jil Sander, tier: luxury}
+  - {name: Moncler, tier: luxury}
+  - {name: Loewe, tier: luxury}
+  - {name: Balenciaga, tier: luxury}
+
 # ─── Transfer profile (Swiss outdoor weights; engine reads these) ────────────
 transfer_profile:
   discard_threshold: 40       # kills US-TikTok-only lifestyle with no EU path
@@ -81,6 +101,7 @@ enabled_sources:
   - community_forum
   - competitor_assortment
   - culture_context
+  - luxury_runway
 
 # ─── Pitch labels (rendered in dashboard when this profile is loaded) ────────
 ui_labels:

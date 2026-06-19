@@ -9,6 +9,7 @@ from src.connectors.search_trends import SearchTrendsConnector
 from src.connectors.community_forum import CommunityForumConnector
 from src.connectors.competitor_assortment import CompetitorAssortmentConnector
 from src.connectors.culture_context import CultureContextConnector
+from src.connectors.luxury_runway import LuxuryRunwayConnector
 
 # registry keyed by source_type string (matches scenario.enabled_sources)
 CONNECTORS: dict[str, type[Connector]] = {
@@ -16,6 +17,7 @@ CONNECTORS: dict[str, type[Connector]] = {
     "community_forum": CommunityForumConnector,
     "competitor_assortment": CompetitorAssortmentConnector,
     "culture_context": CultureContextConnector,
+    "luxury_runway": LuxuryRunwayConnector,
 }
 
 __all__ = ["Connector", "CONNECTORS"]

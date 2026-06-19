@@ -1,0 +1,14 @@
+rank,brand,tier,influence_score,collab_gravity,community_authority,lead_time,cross_market_spread,reference_rank,markets,note
+1,Salomon,prestige_outdoor,0.687,0.5,0.8,1.0,0.333,0.867,US,Trendsetter via 1 luxury collab(s) (Maison Margiela / MM6); strong enthusiast community authority; bestseller rank at a reference retailer.
+2,Arc'teryx,prestige_outdoor,0.497,0.5,0.0,1.0,0.667,0.467,DE; US,Trendsetter via 1 luxury collab(s) (Jil Sander); present across 2 origin markets; bestseller rank at a reference retailer.
+3,On,prestige_outdoor,0.4,0.5,0.0,1.0,0.333,0.0,KR,Trendsetter via 1 luxury collab(s) (Loewe).
+4,Maison Margiela,luxury,0.4,0.5,0.0,1.0,0.333,0.0,US,Trendsetter via 1 luxury collab(s) (Maison Margiela / MM6).
+5,Jil Sander,luxury,0.4,0.5,0.0,1.0,0.333,0.0,US,Trendsetter via 1 luxury collab(s) (Jil Sander).
+6,Loewe,luxury,0.4,0.5,0.0,1.0,0.333,0.0,KR,Trendsetter via 1 luxury collab(s) (Loewe).
+7,Norda,prestige_outdoor,0.277,0.0,0.0,1.0,0.333,0.267,US,Trendsetter via bestseller rank at a reference retailer.
+8,And Wander,prestige_outdoor,0.25,0.0,0.0,1.0,0.333,0.0,KR,
+9,Goldwin,prestige_outdoor,0.25,0.0,0.0,1.0,0.333,0.0,KR,
+10,Prada,luxury,0.25,0.0,0.0,1.0,0.333,0.0,US,
+11,Moncler,luxury,0.25,0.0,0.0,1.0,0.333,0.0,US,
+12,Hoka,prestige_outdoor,0.243,0.0,0.0,0.5,0.333,0.933,CH; US,Trendsetter via bestseller rank at a reference retailer.
+13,Patagonia,prestige_outdoor,0.197,0.0,0.0,0.5,0.333,0.467,CH; DE,Trendsetter via bestseller rank at a reference retailer.

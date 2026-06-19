@@ -1,0 +1,258 @@
+[
+  {
+    "name": "Salomon",
+    "tier": "prestige_outdoor",
+    "influence_score": 0.687,
+    "components": {
+      "collab_gravity": 0.5,
+      "community_authority": 0.8,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.867
+    },
+    "markets": [
+      "US"
+    ],
+    "evidence_urls": [
+      "https://reddit.com/r/Ultralight",
+      "https://www.rei.com/search?q=filter%20flask",
+      "https://www.vogue.com/fashion-shows"
+    ],
+    "note": "Trendsetter via 1 luxury collab(s) (Maison Margiela / MM6); strong enthusiast community authority; bestseller rank at a reference retailer."
+  },
+  {
+    "name": "Arc'teryx",
+    "tier": "prestige_outdoor",
+    "influence_score": 0.497,
+    "components": {
+      "collab_gravity": 0.5,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.667,
+      "reference_rank": 0.467
+    },
+    "markets": [
+      "DE",
+      "US"
+    ],
+    "evidence_urls": [
+      "https://hypebeast.com",
+      "https://www.bergfreunde.de"
+    ],
+    "note": "Trendsetter via 1 luxury collab(s) (Jil Sander); present across 2 origin markets; bestseller rank at a reference retailer."
+  },
+  {
+    "name": "On",
+    "tier": "prestige_outdoor",
+    "influence_score": 0.4,
+    "components": {
+      "collab_gravity": 0.5,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.0
+    },
+    "markets": [
+      "KR"
+    ],
+    "evidence_urls": [
+      "https://hypebeast.com"
+    ],
+    "note": "Trendsetter via 1 luxury collab(s) (Loewe)."
+  },
+  {
+    "name": "Maison Margiela",
+    "tier": "luxury",
+    "influence_score": 0.4,
+    "components": {
+      "collab_gravity": 0.5,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.0
+    },
+    "markets": [
+      "US"
+    ],
+    "evidence_urls": [
+      "https://www.vogue.com/fashion-shows"
+    ],
+    "note": "Trendsetter via 1 luxury collab(s) (Maison Margiela / MM6)."
+  },
+  {
+    "name": "Jil Sander",
+    "tier": "luxury",
+    "influence_score": 0.4,
+    "components": {
+      "collab_gravity": 0.5,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.0
+    },
+    "markets": [
+      "US"
+    ],
+    "evidence_urls": [
+      "https://hypebeast.com"
+    ],
+    "note": "Trendsetter via 1 luxury collab(s) (Jil Sander)."
+  },
+  {
+    "name": "Loewe",
+    "tier": "luxury",
+    "influence_score": 0.4,
+    "components": {
+      "collab_gravity": 0.5,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.0
+    },
+    "markets": [
+      "KR"
+    ],
+    "evidence_urls": [
+      "https://hypebeast.com"
+    ],
+    "note": "Trendsetter via 1 luxury collab(s) (Loewe)."
+  },
+  {
+    "name": "Norda",
+    "tier": "prestige_outdoor",
+    "influence_score": 0.277,
+    "components": {
+      "collab_gravity": 0.0,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.267
+    },
+    "markets": [
+      "US"
+    ],
+    "evidence_urls": [
+      "https://www.rei.com"
+    ],
+    "note": "Trendsetter via bestseller rank at a reference retailer."
+  },
+  {
+    "name": "And Wander",
+    "tier": "prestige_outdoor",
+    "influence_score": 0.25,
+    "components": {
+      "collab_gravity": 0.0,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.0
+    },
+    "markets": [
+      "KR"
+    ],
+    "evidence_urls": [
+      "https://www.voguebusiness.com"
+    ],
+    "note": null
+  },
+  {
+    "name": "Goldwin",
+    "tier": "prestige_outdoor",
+    "influence_score": 0.25,
+    "components": {
+      "collab_gravity": 0.0,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.0
+    },
+    "markets": [
+      "KR"
+    ],
+    "evidence_urls": [
+      "https://www.voguebusiness.com"
+    ],
+    "note": null
+  },
+  {
+    "name": "Prada",
+    "tier": "luxury",
+    "influence_score": 0.25,
+    "components": {
+      "collab_gravity": 0.0,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.0
+    },
+    "markets": [
+      "US"
+    ],
+    "evidence_urls": [
+      "https://www.vogue.com/fashion-shows"
+    ],
+    "note": null
+  },
+  {
+    "name": "Moncler",
+    "tier": "luxury",
+    "influence_score": 0.25,
+    "components": {
+      "collab_gravity": 0.0,
+      "community_authority": 0.0,
+      "lead_time": 1.0,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.0
+    },
+    "markets": [
+      "US"
+    ],
+    "evidence_urls": [
+      "https://www.vogue.com/fashion-shows"
+    ],
+    "note": null
+  },
+  {
+    "name": "Hoka",
+    "tier": "prestige_outdoor",
+    "influence_score": 0.243,
+    "components": {
+      "collab_gravity": 0.0,
+      "community_authority": 0.0,
+      "lead_time": 0.5,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.933
+    },
+    "markets": [
+      "CH",
+      "US"
+    ],
+    "evidence_urls": [
+      "https://www.ochsnersport.ch",
+      "https://www.rei.com/search?q=carbon%20plate%20trail",
+      "https://www.transa.ch"
+    ],
+    "note": "Trendsetter via bestseller rank at a reference retailer."
+  },
+  {
+    "name": "Patagonia",
+    "tier": "prestige_outdoor",
+    "influence_score": 0.197,
+    "components": {
+      "collab_gravity": 0.0,
+      "community_authority": 0.0,
+      "lead_time": 0.5,
+      "cross_market_spread": 0.333,
+      "reference_rank": 0.467
+    },
+    "markets": [
+      "CH",
+      "DE"
+    ],
+    "evidence_urls": [
+      "https://www.bergfreunde.de",
+      "https://www.transa.ch"
+    ],
+    "note": "Trendsetter via bestseller rank at a reference retailer."
+  }
+]
