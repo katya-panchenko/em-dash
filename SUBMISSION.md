@@ -1,18 +1,17 @@
-# Submission — Telltale
+# Submission — TellTale
 
-**Telltale** converts search spikes, forum chatter, and competitor gaps into clear stocking decisions — buy, hold, or walk away. What sets us apart: we don't just flag what's rising — we score local shelf gaps, cross-market transferability, and trendsetter pull, while surfacing what's cooling and filtering runway noise, so buyers get a defensible buy/hold/exit call, not another trend deck.
+**TellTale** converts search spikes, forum chatter, and competitor gaps into clear stocking decisions — buy, hold, or walk away. 
 
-A **scenario-driven retail opportunity radar**. Pitched on Swiss outdoor, but the engine is generic:
-every retailer, community, market, and transfer rule lives in a scenario YAML, not in code. Swap the
-profile → retarget to any market, category, or industry.
+What sets us apart: we don't just flag what's rising — we score local shelf gaps, cross-market transferability, and trendsetter pull, while surfacing what's cooling and filtering runway noise, so buyers get a defensible buy/hold/exit call, not another trend deck.
+
+We demo on Swiss outdoor retail, but TellTale is built to retarget any market, category, or retailer — no rebuild required.
 
 ## Team
 
 - Team name: em–dash
 - Team members: Joelle Faybishenko, Irem Liter, Katya Panchenko
 - GitHub fork URL: [https://github.com/katya-panchenko/em-dash](https://github.com/katya-panchenko/em-dash)
-- Demo URL, if any:
-  - **Web app:** `[site/](site/)` — run locally (`cd site && bun install && bun dev`) or open the committed feed at `[web/swiss_outdoor.json](web/swiss_outdoor.json)`
+- Demo URL, if any: [https://melodious-kashata-b0700b.netlify.app/](https://melodious-kashata-b0700b.netlify.app/) — live TellTale dashboard (Swiss outdoor). Run locally: `cd site && bun install && bun dev`
 
 ## Summary
 
