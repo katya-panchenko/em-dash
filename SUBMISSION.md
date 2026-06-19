@@ -82,7 +82,7 @@ explainer. Loads `[web/swiss_outdoor.json](web/swiss_outdoor.json)` (regenerated
 ## Ranked Opportunities
 
 $$
-\text{raw} = 0.35\,g + 0.30\,c + 0.20\,v + 0.15\,p
+\text{raw} = 0.35g + 0.30c + 0.20v + 0.15p
 $$
 
 $$
