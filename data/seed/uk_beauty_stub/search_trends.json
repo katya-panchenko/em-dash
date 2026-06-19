@@ -1,0 +1,6 @@
+[
+  {"source_type": "search_trends", "source": "Google Trends", "market": "KR", "category": "skincare", "keyword": "PDRN serum", "signal_name": "PDRN salmon-DNA serum", "url": "https://trends.google.com/trends/explore?q=PDRN&geo=KR", "signal_score": 0.88, "velocity": 0.72, "notes": "KR origin, accelerating", "observed_at": "2026-06-19"},
+  {"source_type": "search_trends", "source": "Google Trends", "market": "US", "category": "skincare", "keyword": "PDRN serum", "signal_name": "PDRN salmon-DNA serum", "url": "https://trends.google.com/trends/explore?q=PDRN&geo=US", "signal_score": 0.7, "velocity": 0.6, "notes": "diffusing US", "observed_at": "2026-06-19"},
+  {"source_type": "search_trends", "source": "Google Trends", "market": "UK", "category": "skincare", "keyword": "PDRN serum", "signal_name": "PDRN salmon-DNA serum", "url": "https://trends.google.com/trends/explore?q=PDRN&geo=GB", "signal_score": 0.25, "velocity": 0.15, "notes": "UK flat = transfer window", "observed_at": "2026-06-19"},
+  {"source_type": "search_trends", "source": "Google Trends", "market": "US", "category": "skincare", "keyword": "slugging balm", "signal_name": "Slugging occlusive balm", "url": "https://trends.google.com/trends/explore?q=slugging&geo=US", "signal_score": 0.6, "velocity": 0.4, "notes": "established US trend", "observed_at": "2026-06-19"}
+]

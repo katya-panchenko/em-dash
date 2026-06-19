@@ -2,6 +2,18 @@
 
 Build the retail radar that spots the next outdoor opportunity before it becomes obvious.
 
+> ## ▶️ Our submission: Alpine Signal Radar
+> A scenario-driven opportunity radar — the engine is generic, the Swiss outdoor specifics live in
+> `config/scenarios/`. See [`SUBMISSION.md`](SUBMISSION.md) for the full write-up and
+> [`docs/research-brief.md`](docs/research-brief.md) for the market research behind it.
+>
+> ```bash
+> python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+> python -m src.collect_offline --scenario config/scenarios/swiss_outdoor.yaml
+> python -m src.pipeline       --scenario config/scenarios/swiss_outdoor.yaml
+> jupyter notebook notebooks/dashboard.ipynb
+> ```
+
 ## Challenge
 
 Retail teams are flooded with weak signals: TikTok clips, search spikes, niche communities, new materials, marketplace bestsellers, competitor drops, weather shifts, and regional lifestyle changes. The hard part is not finding more data. It is turning noisy signals into one clear answer: what should a retailer do next?

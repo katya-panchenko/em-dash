@@ -1,0 +1,9 @@
+source_type,source,market,created_by_tool,keyword,signal_name,category,url,notes,observed_at,signal_score,velocity,opportunity_id,signal_type,brand,rank
+community_forum,r/AsianBeauty,US,alpine-signal-radar,PDRN,PDRN salmon-DNA serum,skincare,https://reddit.com/r/AsianBeauty,"rising PDRN routine threads, clinical-study citations",2026-06-19,0.78,0.7,pdrn-salmon-dna-serum,social,,
+community_forum,r/SkincareAddiction,US,alpine-signal-radar,slugging,Slugging occlusive balm,skincare,https://reddit.com/r/SkincareAddiction,steady slugging discussion,2026-06-19,0.6,0.4,slugging-occlusive-balm,social,,
+competitor_assortment,Olive Young,KR,alpine-signal-radar,PDRN serum,PDRN salmon-DNA serum,skincare,https://global.oliveyoung.com,bestseller at Olive Young; absent at Boots/Superdrug,2026-06-19,0.85,,pdrn-salmon-dna-serum,competitor,Medicube / VT,2.0
+competitor_assortment,Sephora,US,alpine-signal-radar,slugging balm,Slugging occlusive balm,skincare,https://www.sephora.com,stocked at Sephora US,2026-06-19,0.6,,slugging-occlusive-balm,competitor,Aquaphor / Vaseline,8.0
+search_trends,Google Trends,KR,alpine-signal-radar,PDRN serum,PDRN salmon-DNA serum,skincare,https://trends.google.com/trends/explore?q=PDRN&geo=KR,"KR origin, accelerating",2026-06-19,0.88,0.72,pdrn-salmon-dna-serum,search,,
+search_trends,Google Trends,US,alpine-signal-radar,PDRN serum,PDRN salmon-DNA serum,skincare,https://trends.google.com/trends/explore?q=PDRN&geo=US,diffusing US,2026-06-19,0.7,0.6,pdrn-salmon-dna-serum,search,,
+search_trends,Google Trends,UK,alpine-signal-radar,PDRN serum,PDRN salmon-DNA serum,skincare,https://trends.google.com/trends/explore?q=PDRN&geo=GB,UK flat = transfer window,2026-06-19,0.25,0.15,pdrn-salmon-dna-serum,search,,
+search_trends,Google Trends,US,alpine-signal-radar,slugging balm,Slugging occlusive balm,skincare,https://trends.google.com/trends/explore?q=slugging&geo=US,established US trend,2026-06-19,0.6,0.4,slugging-occlusive-balm,search,,

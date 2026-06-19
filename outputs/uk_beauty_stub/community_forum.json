@@ -1,0 +1,30 @@
+[
+  {
+    "source_type": "community_forum",
+    "source": "r/AsianBeauty",
+    "market": "US",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "PDRN",
+    "signal_name": "PDRN salmon-DNA serum",
+    "category": "skincare",
+    "url": "https://reddit.com/r/AsianBeauty",
+    "notes": "rising PDRN routine threads, clinical-study citations",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.78,
+    "velocity": 0.7
+  },
+  {
+    "source_type": "community_forum",
+    "source": "r/SkincareAddiction",
+    "market": "US",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "slugging",
+    "signal_name": "Slugging occlusive balm",
+    "category": "skincare",
+    "url": "https://reddit.com/r/SkincareAddiction",
+    "notes": "steady slugging discussion",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.6,
+    "velocity": 0.4
+  }
+]

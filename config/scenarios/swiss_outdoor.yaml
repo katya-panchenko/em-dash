@@ -1,0 +1,89 @@
+scenario_id: swiss_outdoor
+display_name: "Swiss Outdoor Retail"
+
+# ─── Markets ─────────────────────────────────────────────────────────────────
+target_market: CH            # where we sell
+reference_markets:           # origin / early-signal markets
+  - US
+  - UK
+  - DE
+  - JP                       # Asia: major outdoor & style trend origins
+  - KR                       #   (esp. for geo_style_diffusion, e.g. gorpcore)
+  - CN
+
+# ─── Local shelf reality (CH) ────────────────────────────────────────────────
+local_competitors:
+  - name: Transa
+    url: https://www.transa.ch
+    role: Premium outdoor specialist
+  - name: Ochsner Sport
+    url: https://www.ochsnersport.ch
+    role: Mass outdoor + sport
+  - name: Galaxus
+    url: https://www.galaxus.ch
+    role: Online breadth
+    category_path: outdoor
+
+# ─── Early commercial proof (reference retailers) ────────────────────────────
+reference_retailers:
+  - name: REI
+    market: US
+    url: https://www.rei.com
+    role: Global trend leader, bestseller ranks
+  - name: Bergfreunde
+    market: DE
+    url: https://www.bergfreunde.de
+    role: EU outdoor assortment, closer to CH taste than US-only
+
+# ─── Communities (legitimacy + weak signals) ─────────────────────────────────
+community_sources:
+  - type: community_forum
+    name: r/trailrunning
+    url: https://reddit.com/r/trailrunning
+  - type: community_forum
+    name: r/Ultralight
+    url: https://reddit.com/r/Ultralight
+  - type: community_forum
+    name: r/SwissHiking
+    url: https://reddit.com/r/SwissHiking
+
+# ─── Categories + seed opportunities ─────────────────────────────────────────
+categories:
+  - id: trail_running
+    seeds:
+      - carbon plate trail shoes
+      - integrated filter flask
+      - challenger trail brands
+  - id: day_hiking
+    seeds:
+      - minimal frame backpack
+      - PFAS-free shell
+      - single vessel filtration
+
+# Legitimacy markers weight INTO transfer score (trust before hype)
+legitimacy_markers:
+  - elite race results (UTMB, Cocodona, Western States)
+  - thru-hiker gear surveys
+  - gear-review flair (not influencer collabs alone)
+
+# ─── Transfer profile (Swiss outdoor weights; engine reads these) ────────────
+transfer_profile:
+  discard_threshold: 40       # kills US-TikTok-only lifestyle with no EU path
+  dimensions:
+    market_context_fit: 0.25  # alpine wet-cold, elevation, multi-day hut culture
+    legitimacy_threshold: 0.25  # race/course proof before lifestyle hype
+    buyer_risk_tolerance: 0.20  # CH buyers wait for EU distribution + peer proof
+    commercial_readiness: 0.15  # SKU exists, price band plausible (CHF 150-280 trail shoes)
+    durability_expectation: 0.15  # repairable, PFAS-free resonates; disposable hype penalized
+
+enabled_sources:
+  - search_trends
+  - community_forum
+  - competitor_assortment
+  - culture_context
+
+# ─── Pitch labels (rendered in dashboard when this profile is loaded) ────────
+ui_labels:
+  local_coverage_gap: "CH assortment gap"
+  transfer_score: "Swiss transfer score"
+  reference_market: "Origin markets"

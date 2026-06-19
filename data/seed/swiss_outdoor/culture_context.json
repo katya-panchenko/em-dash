@@ -1,0 +1,13 @@
+[
+  {"source_type": "culture_context", "source": "UCI / broadcast ratings", "market": "DACH", "category": "trail_running", "keyword": "womens gravel viewership", "signal_name": "Women's gravel & trail gear", "signal_flavor": "viewership", "url": "https://www.uci.org", "signal_score": 0.6, "velocity": 0.5, "notes": "women's gravel/cycling viewership up ~30% YoY → women's gravel/trail gear demand", "observed_at": "2026-06-19"},
+
+  {"source_type": "culture_context", "source": "Crunchbase / trade press", "market": "US", "category": "trail_running", "keyword": "trail nutrition startups", "signal_name": "Trail nutrition & energy products", "signal_flavor": "emerging_business", "url": "https://www.crunchbase.com", "signal_score": 0.58, "velocity": 0.5, "notes": "surge in endurance protein-bar / gel startups (cross-category spillover into outdoor checkout)", "observed_at": "2026-06-19"},
+
+  {"source_type": "culture_context", "source": "UTMB World Series", "market": "DACH", "category": "trail_running", "keyword": "UTMB 2026", "signal_name": "Challenger trail-running brands", "signal_flavor": "event_anticipation", "url": "https://utmb.world", "signal_score": 0.55, "velocity": 0.6, "notes": "UTMB 2026 (Chamonix, near CH) → visibility spike for race-proven challenger brands", "observed_at": "2026-06-19"},
+
+  {"source_type": "culture_context", "source": "Trend press (KR/CN)", "market": "KR", "category": "day_hiking", "keyword": "gorpcore diffusion", "signal_name": "Technical-aesthetic apparel (gorpcore)", "signal_flavor": "geo_style_diffusion", "url": "https://www.voguebusiness.com", "signal_score": 0.7, "velocity": 0.62, "notes": "gorpcore/technical aesthetic dominant in KR/CN street style; historically diffuses to DACH in ~12-18mo", "observed_at": "2026-06-19"},
+
+  {"source_type": "culture_context", "source": "Retail segment reports", "market": "US", "category": "day_hiking", "keyword": "kids outdoor footwear", "signal_name": "Kids' trail & hiking footwear", "signal_flavor": "segment_trend", "url": "https://www.npd.com", "signal_score": 0.5, "velocity": 0.42, "notes": "family-outdoor participation up; kids' technical footwear underserved segment", "observed_at": "2026-06-19"},
+
+  {"source_type": "culture_context", "source": "TikTok trend monitor", "market": "US", "category": "trail_running", "keyword": "viral hydration gimmick", "signal_name": "TikTok viral hydration gimmick", "signal_flavor": "viewership", "url": "https://www.tiktok.com", "signal_score": 0.4, "velocity": 0.7, "notes": "viral US gimmick, no EU SKU / distribution; lifestyle-only", "observed_at": "2026-06-19"}
+]

@@ -1,0 +1,57 @@
+# Cross-industry STUB — proves the engine retargets with config only.
+# A real run would expand seeds/communities; this is enough to show the same
+# pipeline surfacing opportunities in a totally different vertical.
+scenario_id: uk_beauty_stub
+display_name: "UK Beauty Retail (stub)"
+
+target_market: UK
+reference_markets: [US, KR, JP]
+
+local_competitors:
+  - name: Boots
+    url: https://www.boots.com
+    role: Mass pharmacy beauty
+  - name: Superdrug
+    url: https://www.superdrug.com
+    role: Mass beauty
+
+reference_retailers:
+  - name: Olive Young
+    market: KR
+    url: https://global.oliveyoung.com
+    role: K-beauty trend leader
+  - name: Sephora
+    market: US
+    url: https://www.sephora.com
+    role: Prestige trend leader
+
+community_sources:
+  - type: community_forum
+    name: r/AsianBeauty
+    url: https://reddit.com/r/AsianBeauty
+  - type: community_forum
+    name: r/SkincareAddiction
+    url: https://reddit.com/r/SkincareAddiction
+
+categories:
+  - id: skincare
+    seeds: [PDRN serum, slugging balm]
+
+legitimacy_markers:
+  - clinical / dermatologist proof
+  - ingredient efficacy studies (not influencer hype)
+
+transfer_profile:
+  discard_threshold: 40
+  dimensions:
+    market_context_fit: 0.20      # climate/skin-type relevance
+    legitimacy_threshold: 0.30    # clinical proof matters most in skincare
+    buyer_risk_tolerance: 0.20
+    commercial_readiness: 0.20
+    durability_expectation: 0.10  # here = ingredient safety / shelf life
+
+enabled_sources: [search_trends, community_forum, competitor_assortment]
+
+ui_labels:
+  local_coverage_gap: "UK assortment gap"
+  transfer_score: "UK transfer score"

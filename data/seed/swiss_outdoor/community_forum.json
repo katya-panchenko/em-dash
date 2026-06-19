@@ -1,0 +1,18 @@
+[
+  {"source_type": "community_forum", "source": "r/Ultralight", "market": "US", "category": "trail_running", "keyword": "integrated filter flask", "signal_name": "Integrated filter-flask hydration", "url": "https://reddit.com/r/Ultralight", "brand": "Katadyn BeFree / Salomon", "signal_score": 0.80, "velocity": 0.80, "notes": "12 rising threads: 'fewer parts', filter-in-cap soft flasks", "observed_at": "2026-06-19"},
+  {"source_type": "community_forum", "source": "r/trailrunning", "market": "US", "category": "trail_running", "keyword": "integrated filter flask", "signal_name": "Integrated filter-flask hydration", "url": "https://reddit.com/r/trailrunning", "signal_score": 0.70, "velocity": 0.62, "notes": "race-day single-vessel debate accelerating", "observed_at": "2026-06-19"},
+
+  {"source_type": "community_forum", "source": "r/trailrunning", "market": "US", "category": "trail_running", "keyword": "carbon plate durability", "signal_name": "Carbon-plate trail shoes", "url": "https://reddit.com/r/trailrunning", "signal_score": 0.60, "velocity": 0.38, "notes": "durability + 50km+ use threads", "observed_at": "2026-06-19"},
+
+  {"source_type": "community_forum", "source": "r/trailrunning", "market": "US", "category": "trail_running", "keyword": "Mount to Coast", "signal_name": "Challenger trail-running brands", "url": "https://reddit.com/r/trailrunning", "brand": "Mount to Coast", "signal_score": 0.66, "velocity": 0.55, "notes": "race-proven challenger, no EU distro yet", "observed_at": "2026-06-19"},
+
+  {"source_type": "community_forum", "source": "r/Ultralight", "market": "US", "category": "day_hiking", "keyword": "smarter light framed pack", "signal_name": "Smarter-light minimal-frame packs", "url": "https://reddit.com/r/Ultralight", "brand": "Hyperlite / ULA", "signal_score": 0.72, "velocity": 0.60, "notes": "'smarter light' narrative replacing stupid-light", "observed_at": "2026-06-19"},
+
+  {"source_type": "community_forum", "source": "r/Ultralight", "market": "US", "category": "day_hiking", "keyword": "PFAS-free membrane", "signal_name": "PFAS-free repairable shells", "url": "https://reddit.com/r/Ultralight", "signal_score": 0.55, "velocity": 0.42, "notes": "repair programs + PFAS-free membrane threads", "observed_at": "2026-06-19"},
+
+  {"source_type": "community_forum", "source": "r/Ultralight", "market": "US", "category": "day_hiking", "keyword": "single vessel filtration", "signal_name": "Single-vessel water filtration", "url": "https://reddit.com/r/Ultralight", "signal_score": 0.60, "velocity": 0.50, "notes": "one-bottle setups gaining", "observed_at": "2026-06-19"},
+
+  {"source_type": "community_forum", "source": "r/SwissHiking", "market": "CH", "category": "day_hiking", "keyword": "hut trip water", "signal_name": "Single-vessel water filtration", "url": "https://reddit.com/r/SwissHiking", "signal_score": 0.45, "velocity": 0.30, "notes": "CH hut-culture water questions (local vocabulary)", "observed_at": "2026-06-19"},
+
+  {"source_type": "community_forum", "source": "r/trailrunning", "market": "US", "category": "trail_running", "keyword": "influencer trail collab", "signal_name": "Influencer trail-apparel collab", "url": "https://reddit.com/r/trailrunning", "signal_score": 0.30, "velocity": 0.22, "notes": "influencer collab hype, no race/gear-review proof", "observed_at": "2026-06-19"}
+]

@@ -1,0 +1,75 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# SCENARIO TEMPLATE — copy this file and fill the six blocks to retarget the
+# engine to a new market, category, or industry. Nothing in src/ is hardcoded;
+# the whole product is configured here.
+#
+#   Reuse examples:
+#     New country  → edit target_market + reference_markets
+#     New vertical → edit categories, community_sources, transfer_profile
+#     New retailer → edit local_competitors / reference_retailers
+#     Stricter     → raise transfer_profile.discard_threshold or shift weights
+# ─────────────────────────────────────────────────────────────────────────────
+
+scenario_id: my_scenario           # short snake_case id, also the outputs/ folder
+display_name: "My Scenario"        # shown in the dashboard
+
+# 1. MARKETS ───────────────────────────────────────────────────────────────────
+target_market: XX                  # where we sell (the buyer's home market)
+reference_markets:                 # origin / early-signal markets to watch
+  - US
+  - KR                             # tip: include trend-origin geographies
+
+# 2. LOCAL SHELF (your home-market competitors — defines the "gap") ─────────────
+local_competitors:
+  - name: Local Competitor A
+    url: https://example.com
+    role: e.g. premium specialist
+  # - name: Local Competitor B ...
+
+# 3. REFERENCE RETAILERS (early commercial proof in origin markets) ────────────
+reference_retailers:
+  - name: Reference Retailer A
+    market: US
+    url: https://example.com
+    role: e.g. trend leader / bestseller ranks
+
+# 4. COMMUNITIES (early demand + legitimacy discourse) ─────────────────────────
+community_sources:
+  - type: community_forum
+    name: r/your_subreddit
+    url: https://reddit.com/r/your_subreddit
+
+# 5. CATEGORIES + SEED OPPORTUNITIES ──────────────────────────────────────────
+categories:
+  - id: category_one
+    seeds:
+      - seed keyword or product phrase
+      - another seed
+
+# legitimacy markers for this vertical (what counts as real proof, not hype)
+legitimacy_markers:
+  - e.g. clinical proof (skincare) / race results (outdoor) / pro reviews
+
+# 6. TRANSFER PROFILE (how a global trend is judged for YOUR market) ───────────
+# Dimensions are generic; the WEIGHTS encode your market's priorities.
+# Weights are normalized to sum to 1 automatically.
+transfer_profile:
+  discard_threshold: 40            # opportunities below this transfer_score are killed
+  dimensions:
+    market_context_fit: 0.25       # climate / regulation / culture fit
+    legitimacy_threshold: 0.25     # proof required before hype
+    buyer_risk_tolerance: 0.20     # conservative vs early-adopter buyers
+    commercial_readiness: 0.15     # SKU exists + distribution in target region
+    durability_expectation: 0.15   # longevity / safety expectations
+
+# which connectors to run (omit any you don't have sources for)
+enabled_sources:
+  - search_trends
+  - community_forum
+  - competitor_assortment
+  - culture_context
+
+# pitch labels shown in the dashboard for this scenario (optional)
+ui_labels:
+  local_coverage_gap: "Local assortment gap"
+  transfer_score: "Transfer score"

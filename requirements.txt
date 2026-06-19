@@ -1,0 +1,12 @@
+# Alpine Signal Radar — dependencies
+pydantic>=2.0
+pyyaml>=6.0
+pandas>=2.0
+numpy>=1.24
+rapidfuzz>=3.0          # fuzzy clustering in dedup
+pytrends>=4.9           # search_trends connector (live, run offline)
+praw>=7.7               # community_forum connector (live, run offline)
+anthropic>=0.40         # enrich.py reasoning layer (optional; deterministic fallback exists)
+python-dotenv>=1.0      # load ANTHROPIC_API_KEY / Reddit creds from .env
+matplotlib>=3.7         # dashboard plots
+jupyter>=1.0            # dashboard notebook

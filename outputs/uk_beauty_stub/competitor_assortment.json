@@ -1,0 +1,32 @@
+[
+  {
+    "source_type": "competitor_assortment",
+    "source": "Olive Young",
+    "market": "KR",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "PDRN serum",
+    "signal_name": "PDRN salmon-DNA serum",
+    "category": "skincare",
+    "brand": "Medicube / VT",
+    "url": "https://global.oliveyoung.com",
+    "rank": 2,
+    "notes": "bestseller at Olive Young; absent at Boots/Superdrug",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.85
+  },
+  {
+    "source_type": "competitor_assortment",
+    "source": "Sephora",
+    "market": "US",
+    "created_by_tool": "alpine-signal-radar",
+    "keyword": "slugging balm",
+    "signal_name": "Slugging occlusive balm",
+    "category": "skincare",
+    "brand": "Aquaphor / Vaseline",
+    "url": "https://www.sephora.com",
+    "rank": 8,
+    "notes": "stocked at Sephora US",
+    "observed_at": "2026-06-19",
+    "signal_score": 0.6
+  }
+]
