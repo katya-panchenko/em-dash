@@ -22,7 +22,10 @@
         "observed_at": "2026-06-19",
         "signal_score": 0.78,
         "velocity": 0.7,
+        "momentum": null,
         "confidence": null,
+        "collab_partner": null,
+        "price_tier": null,
         "opportunity_id": "pdrn-salmon-dna-serum"
       },
       {
@@ -43,7 +46,10 @@
         "observed_at": "2026-06-19",
         "signal_score": 0.85,
         "velocity": null,
+        "momentum": null,
         "confidence": null,
+        "collab_partner": null,
+        "price_tier": null,
         "opportunity_id": "pdrn-salmon-dna-serum"
       },
       {
@@ -64,7 +70,10 @@
         "observed_at": "2026-06-19",
         "signal_score": 0.88,
         "velocity": 0.72,
+        "momentum": null,
         "confidence": null,
+        "collab_partner": null,
+        "price_tier": null,
         "opportunity_id": "pdrn-salmon-dna-serum"
       },
       {
@@ -85,7 +94,10 @@
         "observed_at": "2026-06-19",
         "signal_score": 0.7,
         "velocity": 0.6,
+        "momentum": null,
         "confidence": null,
+        "collab_partner": null,
+        "price_tier": null,
         "opportunity_id": "pdrn-salmon-dna-serum"
       },
       {
@@ -106,7 +118,10 @@
         "observed_at": "2026-06-19",
         "signal_score": 0.25,
         "velocity": 0.15,
+        "momentum": null,
         "confidence": null,
+        "collab_partner": null,
+        "price_tier": null,
         "opportunity_id": "pdrn-salmon-dna-serum"
       }
     ],
@@ -114,6 +129,13 @@
     "corroboration": 1.0,
     "velocity": 0.85,
     "commercial_proof": 0.9,
+    "momentum": 0.473,
+    "direction": "rising",
+    "cooling_score": 0.0,
+    "trendsetter_backed": false,
+    "top_brand": null,
+    "luxury_trickle": false,
+    "early_watch": false,
     "transfer_dimensions": {
       "market_context_fit": 0.7,
       "legitimacy_threshold": 0.85,
@@ -131,7 +153,8 @@
     "why_now": "Rising in KR, US (velocity 85%); absent on UK/DACH shelves; corroborated by 3 source types (community forum, competitor assortment, search trends).",
     "transferability": "Transfer 74/100 — strongest on commercial readiness, weakest on buyer risk tolerance.",
     "recommended_action": "Scout 2 EU-distributed brands; test-buy 20 units in Zürich + Bern stores.",
-    "risks": "Weakest dimension: buyer risk tolerance."
+    "risks": "Weakest dimension: buyer risk tolerance.",
+    "trickle_note": null
   },
   {
     "opportunity_id": "slugging-occlusive-balm",
@@ -156,7 +179,10 @@
         "observed_at": "2026-06-19",
         "signal_score": 0.6,
         "velocity": 0.4,
+        "momentum": null,
         "confidence": null,
+        "collab_partner": null,
+        "price_tier": null,
         "opportunity_id": "slugging-occlusive-balm"
       },
       {
@@ -177,7 +203,10 @@
         "observed_at": "2026-06-19",
         "signal_score": 0.6,
         "velocity": null,
+        "momentum": null,
         "confidence": null,
+        "collab_partner": null,
+        "price_tier": null,
         "opportunity_id": "slugging-occlusive-balm"
       },
       {
@@ -198,7 +227,10 @@
         "observed_at": "2026-06-19",
         "signal_score": 0.6,
         "velocity": 0.4,
+        "momentum": null,
         "confidence": null,
+        "collab_partner": null,
+        "price_tier": null,
         "opportunity_id": "slugging-occlusive-balm"
       }
     ],
@@ -206,6 +238,13 @@
     "corroboration": 1.0,
     "velocity": 0.6,
     "commercial_proof": 0.9,
+    "momentum": 0.267,
+    "direction": "rising",
+    "cooling_score": 0.0,
+    "trendsetter_backed": false,
+    "top_brand": null,
+    "luxury_trickle": false,
+    "early_watch": false,
     "transfer_dimensions": {
       "market_context_fit": 0.7,
       "legitimacy_threshold": 0.85,
@@ -223,6 +262,7 @@
     "why_now": "Rising in US (velocity 60%); absent on UK/DACH shelves; corroborated by 3 source types (community forum, competitor assortment, search trends).",
     "transferability": "Transfer 74/100 — strongest on commercial readiness, weakest on buyer risk tolerance.",
     "recommended_action": "Scout 2 EU-distributed brands; test-buy 20 units in Zürich + Bern stores.",
-    "risks": "Weakest dimension: buyer risk tolerance."
+    "risks": "Weakest dimension: buyer risk tolerance.",
+    "trickle_note": null
   }
 ]

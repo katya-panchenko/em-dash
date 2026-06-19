@@ -1,0 +1,917 @@
+{
+  "scenario_id": "swiss_outdoor",
+  "display_name": "Swiss Outdoor Retail",
+  "target_market": "CH",
+  "summary": "The strongest CH transfer opportunities are filter-flask hydration and PFAS-free repairable shells, where rising local relevance, EU availability, and clear coverage gaps support immediate buys. Challenger trail brands are a high-legitimacy play worth securing distribution for ahead of the nearby UTMB 2026 visibility spike. Single-vessel filtration, smarter-light packs, women's gravel gear, and gorpcore apparel merit pilots, with gorpcore framed as functional luxe bridged by Salomon/Arc'teryx collabs. Hydration bladders, legacy PFAS hardshells, and maximalist stack shoes are cooling and should be held and cleared, while the TikTok gimmick and embellished logo-mania outerwear are watch-only with no functional or legitimacy basis for CH.",
+  "buys": [
+    {
+      "rank": 1,
+      "name": "Integrated filter-flask hydration",
+      "category": "trail_running",
+      "final_score": 0.788,
+      "transfer_score": 78.8,
+      "confidence": "high",
+      "coverage_status": "absent",
+      "momentum": 0.467,
+      "direction": "rising",
+      "trendsetter_backed": true,
+      "top_brand": "Salomon",
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "US/UK/KR momentum is accelerating while CH search stays flat, opening a clean first-mover transfer window in an absent local category.",
+      "transferability": "EU availability via Bergfreunde and Salomon's DACH presence make CH transfer low-friction, though CH legitimacy rests on race/forum proof rather than UTMB results yet.",
+      "recommended_action": "Buy a focused Salomon filter-flask range now and seed it via CH trail-running clubs ahead of summer season.",
+      "risks": "Filter cleaning/longevity skepticism and a still-forming legitimacy base could slow conversion.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/Ultralight",
+          "market": "US",
+          "url": "https://reddit.com/r/Ultralight",
+          "note": "12 rising threads: 'fewer parts', filter-in-cap soft flasks"
+        },
+        {
+          "source_type": "community_forum",
+          "source": "r/trailrunning",
+          "market": "US",
+          "url": "https://reddit.com/r/trailrunning",
+          "note": "race-day single-vessel debate accelerating"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "REI",
+          "market": "US",
+          "url": "https://www.rei.com/search?q=filter%20flask",
+          "note": "bestseller-rank hydration; in stock"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Bergfreunde",
+          "market": "DE",
+          "url": "https://www.bergfreunde.de/filter-flask/",
+          "note": "EU availability = closer to CH taste"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=filter%20flask&geo=US",
+          "note": "12-mo interest 85, accel 1.7x"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "UK",
+          "url": "https://trends.google.com/trends/explore?q=filter%20flask&geo=GB",
+          "note": "rising in UK"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "KR",
+          "url": "https://trends.google.com/trends/explore?q=filter%20flask&geo=KR",
+          "note": "Asia origin signal"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "CH",
+          "url": "https://trends.google.com/trends/explore?q=filter%20flask&geo=CH",
+          "note": "CH flat = transfer window open"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Single-vessel water filtration",
+      "category": "day_hiking",
+      "final_score": 0.64,
+      "transfer_score": 70.0,
+      "confidence": "high",
+      "coverage_status": "absent",
+      "momentum": 0.321,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "Local CH hut-culture water questions plus rising US one-bottle setups signal latent demand in an absent category.",
+      "transferability": "CH-specific SwissHiking vocabulary shows real local resonance, but no top brand and only US stocking limit immediate channel readiness.",
+      "recommended_action": "Pilot a small single-vessel filtration assortment tied to the broader filter-flask macro to test CH hut-hiking demand.",
+      "risks": "Fragmented brand landscape and untested CH purchase intent raise stock-mismatch risk.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/Ultralight",
+          "market": "US",
+          "url": "https://reddit.com/r/Ultralight",
+          "note": "one-bottle setups gaining"
+        },
+        {
+          "source_type": "community_forum",
+          "source": "r/SwissHiking",
+          "market": "CH",
+          "url": "https://reddit.com/r/SwissHiking",
+          "note": "CH hut-culture water questions (local vocabulary)"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "REI",
+          "market": "US",
+          "url": "https://www.rei.com",
+          "note": "stocked at REI; absent in CH"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=filter%20bottle&geo=US",
+          "note": "links to filter-flask macro"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "PFAS-free repairable shells",
+      "category": "day_hiking",
+      "final_score": 0.626,
+      "transfer_score": 79.5,
+      "confidence": "high",
+      "coverage_status": "partially_covered",
+      "momentum": 0.257,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "EU PFAS regulation plus rising CH interest and Arc'teryx leadership make sustainable repairable shells a near-term mainstream shift.",
+      "transferability": "Regulation-driven demand transfers strongly to environmentally-conscious DACH buyers with Arc'teryx as a credibility anchor.",
+      "recommended_action": "Build out PFAS-free repairable shell assortment with repair-program tie-ins to close the partial CH gap.",
+      "risks": "Higher price points and membrane-performance doubts could slow conversion among value buyers.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/Ultralight",
+          "market": "US",
+          "url": "https://reddit.com/r/Ultralight",
+          "note": "repair programs + PFAS-free membrane threads"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Bergfreunde",
+          "market": "DE",
+          "url": "https://www.bergfreunde.de",
+          "note": "EU sustainability assortment; Arc'teryx leading PFAS-free shells"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Transa",
+          "market": "CH",
+          "url": "https://www.transa.ch",
+          "note": "partial PFAS-free selection"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "DE",
+          "url": "https://trends.google.com/trends/explore?q=PFAS%20free%20jacket&geo=DE",
+          "note": "EU regulation-driven"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "CH",
+          "url": "https://trends.google.com/trends/explore?q=PFAS%20free%20jacket&geo=CH",
+          "note": "rising in CH too"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Challenger trail-running brands",
+      "category": "trail_running",
+      "final_score": 0.61,
+      "transfer_score": 72.2,
+      "confidence": "high",
+      "coverage_status": "absent",
+      "momentum": 0.423,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "UTMB 2026 in nearby Chamonix will spike DACH visibility for race-proven challenger brands currently absent from CH.",
+      "transferability": "Strong elite-race legitimacy transfers well to UTMB-centric CH culture, but no EU distribution is the main commercial bottleneck.",
+      "recommended_action": "Secure EU/CH distribution rights for one race-proven challenger brand now to land assortment before the UTMB 2026 visibility wave.",
+      "risks": "Distribution gaps and Salomon/On incumbency could blunt a late entry.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/trailrunning",
+          "market": "US",
+          "url": "https://reddit.com/r/trailrunning",
+          "note": "race-proven challenger, no EU distro yet"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "REI",
+          "market": "US",
+          "url": "https://www.rei.com",
+          "note": "stocked at REI; absent in CH"
+        },
+        {
+          "source_type": "culture_context",
+          "source": "UTMB World Series",
+          "market": "DACH",
+          "url": "https://utmb.world",
+          "note": "UTMB 2026 (Chamonix, near CH) → visibility spike for race-proven challenger brands"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=Mount%20to%20Coast&geo=US",
+          "note": "challenger brand momentum"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Smarter-light minimal-frame packs",
+      "category": "day_hiking",
+      "final_score": 0.591,
+      "transfer_score": 71.8,
+      "confidence": "high",
+      "coverage_status": "partially_covered",
+      "momentum": 0.227,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "The 'smarter light' narrative is replacing stupid-light while CH lags with only thin Transa selection, leaving a partial gap to fill.",
+      "transferability": "EU availability and proven commercial demand transfer cleanly to weight-conscious DACH hikers despite slower CH search.",
+      "recommended_action": "Expand sub-1kg framed-pack depth to close the partial Transa gap with clear durability messaging.",
+      "risks": "Lower momentum and existing partial coverage limit upside versus full-gap categories.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/Ultralight",
+          "market": "US",
+          "url": "https://reddit.com/r/Ultralight",
+          "note": "'smarter light' narrative replacing stupid-light"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "REI",
+          "market": "US",
+          "url": "https://www.rei.com",
+          "note": "sub-1kg framed packs"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Bergfreunde",
+          "market": "DE",
+          "url": "https://www.bergfreunde.de",
+          "note": "EU availability"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Transa",
+          "market": "CH",
+          "url": "https://www.transa.ch",
+          "note": "thin/partial selection at Transa"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=ultralight%20framed%20pack&geo=US",
+          "note": "narrative shift from stupid-light"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "CH",
+          "url": "https://trends.google.com/trends/explore?q=ultralight%20framed%20pack&geo=CH",
+          "note": "CH lagging"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Carbon-plate trail shoes",
+      "category": "trail_running",
+      "final_score": 0.507,
+      "transfer_score": 71.2,
+      "confidence": "low",
+      "coverage_status": "partially_covered",
+      "momentum": 0.175,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "Category is already mainstream at Transa and Ochsner yet still rising, indicating durable rather than peaking demand.",
+      "transferability": "Already present in CH with strong race legitimacy, so transfer is proven but the white-space advantage is small.",
+      "recommended_action": "Maintain and selectively deepen carbon-plate range where the 0.33 gap exists, focusing on 50km+ durability claims.",
+      "risks": "Crowded incumbent shelf and durability concerns over plate longevity cap differentiation.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/trailrunning",
+          "market": "US",
+          "url": "https://reddit.com/r/trailrunning",
+          "note": "durability + 50km+ use threads"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "REI",
+          "market": "US",
+          "url": "https://www.rei.com/search?q=carbon%20plate%20trail",
+          "note": "category leader"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Transa",
+          "market": "CH",
+          "url": "https://www.transa.ch",
+          "note": "already stocked at Transa"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Ochsner Sport",
+          "market": "CH",
+          "url": "https://www.ochsnersport.ch",
+          "note": "mainstream adoption at Ochsner"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=carbon%20plate%20trail%20shoes&geo=US",
+          "note": "established + still rising"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "CH",
+          "url": "https://trends.google.com/trends/explore?q=carbon%20plate%20trail%20shoes&geo=CH",
+          "note": "already present in CH"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Technical-aesthetic apparel (gorpcore)",
+      "category": "day_hiking",
+      "final_score": 0.358,
+      "transfer_score": 52.2,
+      "confidence": "high",
+      "coverage_status": "unknown",
+      "momentum": 0.533,
+      "direction": "rising",
+      "trendsetter_backed": true,
+      "top_brand": "Salomon",
+      "luxury_trickle": true,
+      "trickle_note": "Functional/technical (not decorative) luxe, bridged by MM6×Salomon and Arc'teryx×Jil Sander collabs descending into mass outdoor.",
+      "why_now": "KR/CN gorpcore street style historically diffuses to DACH in 12-18 months, positioning CH for an incoming aesthetic wave.",
+      "transferability": "Style diffusion to DACH is documented but legitimacy rests on fashion rather than race proof, and commercial proof is currently zero.",
+      "recommended_action": "Stock entry technical-aesthetic apparel from Salomon/On and monitor KR-to-DACH diffusion before scaling.",
+      "risks": "Fashion-led demand can fade fast and lacks the gear-review legitimacy CH buyers reward.",
+      "evidence": [
+        {
+          "source_type": "culture_context",
+          "source": "Trend press (KR/CN)",
+          "market": "KR",
+          "url": "https://www.voguebusiness.com",
+          "note": "gorpcore/technical aesthetic dominant in KR/CN street style; historically diffuses to DACH in ~12-18mo"
+        },
+        {
+          "source_type": "luxury_runway",
+          "source": "Vogue Runway",
+          "market": "US",
+          "url": "https://www.vogue.com/fashion-shows",
+          "note": "MM6×Salomon collab — functional technical-luxe; trickle bridge into mass outdoor"
+        },
+        {
+          "source_type": "luxury_runway",
+          "source": "Hypebeast",
+          "market": "US",
+          "url": "https://hypebeast.com",
+          "note": "Arc'teryx×Jil Sander — functional shell aesthetic crossing into fashion"
+        },
+        {
+          "source_type": "luxury_runway",
+          "source": "Hypebeast",
+          "market": "KR",
+          "url": "https://hypebeast.com",
+          "note": "On×Loewe performance-luxe; KR/Asia visibility"
+        },
+        {
+          "source_type": "luxury_runway",
+          "source": "Vogue Runway",
+          "market": "US",
+          "url": "https://www.vogue.com/fashion-shows",
+          "note": "Prada Linea Rossa technical line — functional luxe, descending price ladder"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "KR",
+          "url": "https://trends.google.com/trends/explore?q=gorpcore&geo=KR",
+          "note": "style hot in KR/CN, diffusing west"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Women's gravel & trail gear",
+      "category": "trail_running",
+      "final_score": 0.243,
+      "transfer_score": 57.2,
+      "confidence": "medium",
+      "coverage_status": "unknown",
+      "momentum": 0.49,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "DACH women's gravel/cycling viewership up ~30% YoY signals rising demand for women-specific trail gear.",
+      "transferability": "Viewership surge is DACH-local and transfers well, but absence of brand and commercial proof keeps readiness low.",
+      "recommended_action": "Pilot a curated women's gravel/trail gear capsule sized to the viewership trend and measure sell-through.",
+      "risks": "No commercial proof yet and unclear assortment depth raise inventory-mismatch risk.",
+      "evidence": [
+        {
+          "source_type": "culture_context",
+          "source": "UCI / broadcast ratings",
+          "market": "DACH",
+          "url": "https://www.uci.org",
+          "note": "women's gravel/cycling viewership up ~30% YoY → women's gravel/trail gear demand"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=womens%20gravel&geo=US",
+          "note": "tracks viewership surge"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Trail nutrition & energy products",
+      "category": "trail_running",
+      "final_score": 0.217,
+      "transfer_score": 51.0,
+      "confidence": "medium",
+      "coverage_status": "unknown",
+      "momentum": 0.472,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "A surge in US endurance gel/bar startups is spilling into outdoor checkout as a margin-friendly add-on.",
+      "transferability": "Cross-category spillover is US-only so far with no CH/DACH signal, weakening near-term transfer confidence.",
+      "recommended_action": "Test a small endurance-nutrition checkout assortment as an attachment to trail-running orders.",
+      "risks": "US-only evidence and crowded local sports-nutrition shelves limit transferability.",
+      "evidence": [
+        {
+          "source_type": "culture_context",
+          "source": "Crunchbase / trade press",
+          "market": "US",
+          "url": "https://www.crunchbase.com",
+          "note": "surge in endurance protein-bar / gel startups (cross-category spillover into outdoor checkout)"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=trail%20nutrition&geo=US",
+          "note": "cross-category spillover from endurance nutrition"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "Kids' trail & hiking footwear",
+      "category": "day_hiking",
+      "final_score": 0.213,
+      "transfer_score": 52.2,
+      "confidence": "medium",
+      "coverage_status": "unknown",
+      "momentum": 0.41,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "Rising family-outdoor participation leaves kids' technical footwear an underserved segment.",
+      "transferability": "Family-outdoor growth is plausible for DACH but evidence is US-only with no commercial proof yet.",
+      "recommended_action": "Trial a focused kids' trail footwear range aligned to family-hiking season to validate CH demand.",
+      "risks": "Sizing complexity, short wear cycles, and US-only signal raise execution risk.",
+      "evidence": [
+        {
+          "source_type": "culture_context",
+          "source": "Retail segment reports",
+          "market": "US",
+          "url": "https://www.npd.com",
+          "note": "family-outdoor participation up; kids' technical footwear underserved segment"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=kids%20trail%20shoes&geo=US",
+          "note": "family-outdoor segment growth"
+        }
+      ]
+    }
+  ],
+  "cooling": [
+    {
+      "rank": 1,
+      "name": "Hydration bladder packs",
+      "momentum": -0.35,
+      "cooling_score": 0.175,
+      "markets": [
+        "UK",
+        "US"
+      ],
+      "why_cooling": "Bladders are cooling as forums and search shift toward soft flasks and filter-in-cap setups in a clear lifecycle handoff.",
+      "recommended_action": "Hold and run down bladder inventory, timing clearance ahead of soft-flask reorders rather than buying.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/Ultralight",
+          "market": "US",
+          "url": "https://reddit.com/r/Ultralight",
+          "note": "threads shifting away from bladders toward soft flasks / filter-in-cap"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=hydration%20bladder&geo=US",
+          "note": "declining as soft-flask / filter-flask setups rise (lifecycle handoff)"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "UK",
+          "url": "https://trends.google.com/trends/explore?q=hydration%20bladder&geo=GB",
+          "note": "cooling in UK too"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Maximalist stack-height shoes",
+      "momentum": -0.289,
+      "cooling_score": 0.144,
+      "markets": [
+        "US"
+      ],
+      "why_cooling": "Sentiment is cooling as runners move back toward lower stack and ground feel.",
+      "recommended_action": "Hold reorders on maximalist stack models and monitor for the moderate-stack rebound before re-committing.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/trailrunning",
+          "market": "US",
+          "url": "https://reddit.com/r/trailrunning",
+          "note": "growing 'back to lower stack / ground feel' sentiment"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=max%20stack%20running&geo=US",
+          "note": "interest cooling as runners move back to moderate stack"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Legacy PFAS membrane hardshells",
+      "momentum": -0.287,
+      "cooling_score": 0.143,
+      "markets": [
+        "DE",
+        "US"
+      ],
+      "why_cooling": "Legacy PFAS hardshells are declining as DACH regulation and users actively shift to PFAS-free alternatives.",
+      "recommended_action": "Hold and clear legacy PFAS membrane stock quickly while transitioning open-to-buy into PFAS-free shells.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/Ultralight",
+          "market": "US",
+          "url": "https://reddit.com/r/Ultralight",
+          "note": "users actively avoiding legacy PFAS membranes"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "DE",
+          "url": "https://trends.google.com/trends/explore?q=goretex%20hardshell&geo=DE",
+          "note": "declining in DACH as PFAS-free regulation + alternatives rise"
+        }
+      ]
+    }
+  ],
+  "early_watch": [
+    {
+      "name": "Embellished logo-mania outerwear",
+      "trickle_note": "Runway/luxury-only with no mass-market uptake yet — decorative, not functional; too soon to call.",
+      "why": "A decorative runway trend with no technical angle and no mass-market uptake makes trickle-down unlikely."
+    }
+  ],
+  "graveyard": [
+    {
+      "name": "Influencer trail-apparel collab",
+      "reason": "single source type — not corroborated"
+    },
+    {
+      "name": "TikTok viral hydration gimmick",
+      "reason": "single source type — not corroborated; transfer score 28 < 40 (weak legitimacy_threshold)"
+    },
+    {
+      "name": "Desert-ultra race vest",
+      "reason": "single source type — not corroborated; transfer score 39 < 40 (weak market_context_fit)"
+    }
+  ],
+  "trendsetters": [
+    {
+      "rank": 1,
+      "name": "Salomon",
+      "tier": "prestige_outdoor",
+      "influence_score": 0.687,
+      "components": {
+        "collab_gravity": 0.5,
+        "community_authority": 0.8,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.867
+      },
+      "markets": [
+        "US"
+      ],
+      "note": "Trendsetter via 1 luxury collab(s) (Maison Margiela / MM6); strong enthusiast community authority; bestseller rank at a reference retailer.",
+      "evidence_urls": [
+        "https://reddit.com/r/Ultralight",
+        "https://www.rei.com/search?q=filter%20flask",
+        "https://www.vogue.com/fashion-shows"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Arc'teryx",
+      "tier": "prestige_outdoor",
+      "influence_score": 0.497,
+      "components": {
+        "collab_gravity": 0.5,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.667,
+        "reference_rank": 0.467
+      },
+      "markets": [
+        "DE",
+        "US"
+      ],
+      "note": "Trendsetter via 1 luxury collab(s) (Jil Sander); present across 2 origin markets; bestseller rank at a reference retailer.",
+      "evidence_urls": [
+        "https://hypebeast.com",
+        "https://www.bergfreunde.de"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "On",
+      "tier": "prestige_outdoor",
+      "influence_score": 0.4,
+      "components": {
+        "collab_gravity": 0.5,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.0
+      },
+      "markets": [
+        "KR"
+      ],
+      "note": "Trendsetter via 1 luxury collab(s) (Loewe).",
+      "evidence_urls": [
+        "https://hypebeast.com"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Maison Margiela",
+      "tier": "luxury",
+      "influence_score": 0.4,
+      "components": {
+        "collab_gravity": 0.5,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.0
+      },
+      "markets": [
+        "US"
+      ],
+      "note": "Trendsetter via 1 luxury collab(s) (Maison Margiela / MM6).",
+      "evidence_urls": [
+        "https://www.vogue.com/fashion-shows"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Jil Sander",
+      "tier": "luxury",
+      "influence_score": 0.4,
+      "components": {
+        "collab_gravity": 0.5,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.0
+      },
+      "markets": [
+        "US"
+      ],
+      "note": "Trendsetter via 1 luxury collab(s) (Jil Sander).",
+      "evidence_urls": [
+        "https://hypebeast.com"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Loewe",
+      "tier": "luxury",
+      "influence_score": 0.4,
+      "components": {
+        "collab_gravity": 0.5,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.0
+      },
+      "markets": [
+        "KR"
+      ],
+      "note": "Trendsetter via 1 luxury collab(s) (Loewe).",
+      "evidence_urls": [
+        "https://hypebeast.com"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Norda",
+      "tier": "prestige_outdoor",
+      "influence_score": 0.277,
+      "components": {
+        "collab_gravity": 0.0,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.267
+      },
+      "markets": [
+        "US"
+      ],
+      "note": "Trendsetter via bestseller rank at a reference retailer.",
+      "evidence_urls": [
+        "https://www.rei.com"
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "And Wander",
+      "tier": "prestige_outdoor",
+      "influence_score": 0.25,
+      "components": {
+        "collab_gravity": 0.0,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.0
+      },
+      "markets": [
+        "KR"
+      ],
+      "note": null,
+      "evidence_urls": [
+        "https://www.voguebusiness.com"
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Goldwin",
+      "tier": "prestige_outdoor",
+      "influence_score": 0.25,
+      "components": {
+        "collab_gravity": 0.0,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.0
+      },
+      "markets": [
+        "KR"
+      ],
+      "note": null,
+      "evidence_urls": [
+        "https://www.voguebusiness.com"
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "Prada",
+      "tier": "luxury",
+      "influence_score": 0.25,
+      "components": {
+        "collab_gravity": 0.0,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.0
+      },
+      "markets": [
+        "US"
+      ],
+      "note": null,
+      "evidence_urls": [
+        "https://www.vogue.com/fashion-shows"
+      ]
+    },
+    {
+      "rank": 11,
+      "name": "Moncler",
+      "tier": "luxury",
+      "influence_score": 0.25,
+      "components": {
+        "collab_gravity": 0.0,
+        "community_authority": 0.0,
+        "lead_time": 1.0,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.0
+      },
+      "markets": [
+        "US"
+      ],
+      "note": null,
+      "evidence_urls": [
+        "https://www.vogue.com/fashion-shows"
+      ]
+    },
+    {
+      "rank": 12,
+      "name": "Hoka",
+      "tier": "prestige_outdoor",
+      "influence_score": 0.243,
+      "components": {
+        "collab_gravity": 0.0,
+        "community_authority": 0.0,
+        "lead_time": 0.5,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.933
+      },
+      "markets": [
+        "CH",
+        "US"
+      ],
+      "note": "Trendsetter via bestseller rank at a reference retailer.",
+      "evidence_urls": [
+        "https://www.ochsnersport.ch",
+        "https://www.rei.com/search?q=carbon%20plate%20trail",
+        "https://www.transa.ch"
+      ]
+    },
+    {
+      "rank": 13,
+      "name": "Patagonia",
+      "tier": "prestige_outdoor",
+      "influence_score": 0.197,
+      "components": {
+        "collab_gravity": 0.0,
+        "community_authority": 0.0,
+        "lead_time": 0.5,
+        "cross_market_spread": 0.333,
+        "reference_rank": 0.467
+      },
+      "markets": [
+        "CH",
+        "DE"
+      ],
+      "note": "Trendsetter via bestseller rank at a reference retailer.",
+      "evidence_urls": [
+        "https://www.bergfreunde.de",
+        "https://www.transa.ch"
+      ]
+    }
+  ]
+}

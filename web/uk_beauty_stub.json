@@ -1,0 +1,110 @@
+{
+  "scenario_id": "uk_beauty_stub",
+  "display_name": "UK Beauty Retail (stub)",
+  "target_market": "UK",
+  "summary": "For UK Beauty Retail (stub), 2 opportunities cleared the bar and 0 were discarded as noise. Top picks: PDRN salmon-DNA serum (74/100, high); Slugging occlusive balm (74/100, high). Each is rising in origin markets (incl. Asia), thin on UK shelves, and corroborated across multiple source types — the clearest signal-to-shelf gaps for the buying team to act on now.",
+  "buys": [
+    {
+      "rank": 1,
+      "name": "PDRN salmon-DNA serum",
+      "category": "skincare",
+      "final_score": 0.702,
+      "transfer_score": 73.5,
+      "confidence": "high",
+      "coverage_status": "absent",
+      "momentum": 0.473,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "Rising in KR, US (velocity 85%); absent on UK/DACH shelves; corroborated by 3 source types (community forum, competitor assortment, search trends).",
+      "transferability": "Transfer 74/100 — strongest on commercial readiness, weakest on buyer risk tolerance.",
+      "recommended_action": "Scout 2 EU-distributed brands; test-buy 20 units in Zürich + Bern stores.",
+      "risks": "Weakest dimension: buyer risk tolerance.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/AsianBeauty",
+          "market": "US",
+          "url": "https://reddit.com/r/AsianBeauty",
+          "note": "rising PDRN routine threads, clinical-study citations"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Olive Young",
+          "market": "KR",
+          "url": "https://global.oliveyoung.com",
+          "note": "bestseller at Olive Young; absent at Boots/Superdrug"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "KR",
+          "url": "https://trends.google.com/trends/explore?q=PDRN&geo=KR",
+          "note": "KR origin, accelerating"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=PDRN&geo=US",
+          "note": "diffusing US"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "UK",
+          "url": "https://trends.google.com/trends/explore?q=PDRN&geo=GB",
+          "note": "UK flat = transfer window"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Slugging occlusive balm",
+      "category": "skincare",
+      "final_score": 0.665,
+      "transfer_score": 73.5,
+      "confidence": "high",
+      "coverage_status": "absent",
+      "momentum": 0.267,
+      "direction": "rising",
+      "trendsetter_backed": false,
+      "top_brand": null,
+      "luxury_trickle": false,
+      "trickle_note": null,
+      "why_now": "Rising in US (velocity 60%); absent on UK/DACH shelves; corroborated by 3 source types (community forum, competitor assortment, search trends).",
+      "transferability": "Transfer 74/100 — strongest on commercial readiness, weakest on buyer risk tolerance.",
+      "recommended_action": "Scout 2 EU-distributed brands; test-buy 20 units in Zürich + Bern stores.",
+      "risks": "Weakest dimension: buyer risk tolerance.",
+      "evidence": [
+        {
+          "source_type": "community_forum",
+          "source": "r/SkincareAddiction",
+          "market": "US",
+          "url": "https://reddit.com/r/SkincareAddiction",
+          "note": "steady slugging discussion"
+        },
+        {
+          "source_type": "competitor_assortment",
+          "source": "Sephora",
+          "market": "US",
+          "url": "https://www.sephora.com",
+          "note": "stocked at Sephora US"
+        },
+        {
+          "source_type": "search_trends",
+          "source": "Google Trends",
+          "market": "US",
+          "url": "https://trends.google.com/trends/explore?q=slugging&geo=US",
+          "note": "established US trend"
+        }
+      ]
+    }
+  ],
+  "cooling": [],
+  "early_watch": [],
+  "graveyard": [],
+  "trendsetters": []
+}
