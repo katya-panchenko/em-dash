@@ -8,19 +8,13 @@ profile → retarget to any market, category, or industry.
 
 - Team name: em–dash
 - Team members: Joelle Faybishenko, Irem Liter, Katya Panchenko
-- GitHub fork URL: https://github.com/katya-panchenko/em-dash
+- GitHub fork URL: [https://github.com/katya-panchenko/em-dash](https://github.com/katya-panchenko/em-dash)
 - Demo URL, if any:
-  - **Notebook:** [`notebooks/dashboard.ipynb`](notebooks/dashboard.ipynb)
-  - **Web app:** [`site/`](site/) — run locally (`cd site && bun install && bun dev`) or open the committed feed at [`web/swiss_outdoor.json`](web/swiss_outdoor.json)
+  - **Web app:** `[site/](site/)` — run locally (`cd site && bun install && bun dev`) or open the committed feed at `[web/swiss_outdoor.json](web/swiss_outdoor.json)`
 
 ## Summary
 
-We built the full **signal → score → transfer → action** pipeline, plus a notebook dashboard and a
-web UI. It detects emerging outdoor opportunities by fusing five signal types, deduplicating them into
-candidate opportunities, scoring each with a transparent composite, judging Swiss/DACH transferability
-(Claude reasoning layer, with a deterministic fallback), and emitting ranked, actionable
-recommendations. The design directly targets the gap the incumbents (WGSN/Heuritech/EDITED — see
-[`docs/research-brief.md`](docs/research-brief.md)) leave: **outdoor-specific, CH/DACH transfer, and an
+We built the full **signal → score → transfer → action** pipeline and display it with a web UI. It detects emerging outdoor opportunities by fusing five signal types, deduplicating them into candidate opportunities, scoring each with a transparent composite, judging Swiss/DACH transferability (Claude reasoning layer, with a deterministic fallback), and emitting ranked, actionable recommendations. The design directly targets the gap the incumbents (WGSN/Heuritech/EDITED — see `[docs/research-brief.md](docs/research-brief.md)`) leave: **outdoor-specific, CH/DACH transfer, and an
 explicit signal→buy conversion.**
 
 Beyond *rising* trends it also flags **cooling categories** (signed momentum → an early-warning
@@ -28,7 +22,7 @@ watchlist, e.g. hydration bladders cooling as filter-flask hydration rises), ran
 brands** (luxury houses + prestige outdoor leaders) by a computed Brand Influence score — with a
 `luxury_runway` source + corroboration gate that separates real high→mass trickle-down from runway
 noise — and exports a **web-ready JSON feed** (`scripts/export_web.py`) consumed by the Lovable-built
-dashboard in [`site/`](site/).
+dashboard in `[site/](site/)`.
 
 Latest `swiss_outdoor` run: **56 signals → 17 opportunities → 10 buys, 3 cooling, 1 early-watch, 3
 discarded**, 13 ranked trendsetter brands.
@@ -48,9 +42,7 @@ python -m src.collect_offline --scenario config/scenarios/swiss_outdoor.yaml
 python -m src.pipeline --scenario config/scenarios/swiss_outdoor.yaml
 # 3) export web feed for the dashboard
 python scripts/export_web.py swiss_outdoor
-# 4) open the notebook demo
-jupyter notebook notebooks/dashboard.ipynb
-# 5) optional: local web app (fetches web/swiss_outdoor.json from GitHub when deployed)
+# 4) open the web dashboard (fetches web/swiss_outdoor.json from GitHub when deployed)
 cd site && bun install && bun dev
 ```
 
@@ -66,31 +58,24 @@ python scripts/export_web.py uk_beauty_stub
 
 - **Market:** CH / DACH (target); US, UK, DE, JP, KR, CN (origin/early-signal, incl. Asia).
 - **Category:** trail running, day hiking (seed keywords in the profile).
-- **Sources:** `search_trends` (Google Trends), `community_forum` (Reddit), `competitor_assortment`
-  (REI/Bergfreunde vs Transa/Ochsner/Galaxus), `culture_context` (viewership, emerging-business,
-  event-anticipation, geo-style-diffusion, segment-trend), `luxury_runway` (luxury×technical collabs,
-  runway → mass trickle-down).
+- **Sources:** `search_trends` (Google Trends), `community_forum` (Reddit), `competitor_assortment`  (REI/Bergfreunde vs Transa/Ochsner/Galaxus), `culture_context` (viewership, emerging-business, event-anticipation, geo-style-diffusion, segment-trend), `luxury_runway` (luxury×technical collabs, runway → mass trickle-down).
 - **Trendsetter brands:** configurable list (luxury + prestige outdoor) in the scenario YAML, re-ranked
-  by `brand_influence.py` from collab gravity, community authority, lead time, cross-market spread, and
-  reference-retailer rank.
+by `brand_influence.py` from collab gravity, community authority, lead time, cross-market spread, and
+reference-retailer rank.
 - **Languages:** English (+ German/CH local vocabulary via r/SwissHiking).
-- **External:** Google Trends, Reddit API, retailer sites, Claude API. All optional — committed seed
-  snapshots make the demo reproducible offline.
+- **External:** Google Trends, Reddit API, retailer sites, Claude API. All optional — committed seed snapshots make the demo reproducible offline.
 
 ## Outputs
 
-- **Notebook dashboard:** [`notebooks/dashboard.ipynb`](notebooks/dashboard.ipynb) — ranked chart, hero
-  card + transfer radar, blank-shelf table, whitespace map, graveyard, cooling watchlist, trendsetter
-  table, category toggle, cross-scenario beat.
 - **Web dashboard:** [`site/`](site/) — TanStack Start + Vite app (built with Lovable) with tabs for
-  buy signals, downward trends, trendsetters (+ early runway watch), graveyard, and a “how scores work”
-  explainer. Loads [`web/swiss_outdoor.json`](web/swiss_outdoor.json) (regenerated by `export_web.py`).
-- **Report:** [`outputs/swiss_outdoor/summary.md`](outputs/swiss_outdoor/summary.md) (exec narrative).
+buy signals, downward trends, trendsetters (+ early runway watch), graveyard, and a “how scores work”
+explainer. Loads `[web/swiss_outdoor.json](web/swiss_outdoor.json)` (regenerated by `export_web.py`).
+- **Report:** `[outputs/swiss_outdoor/summary.md](outputs/swiss_outdoor/summary.md)` (exec narrative).
 - **Structured data:** `outputs/swiss_outdoor/signals.csv`, `recommendations.csv`,
-  `cooling_watchlist.csv` (declining), `brand_influence.csv` + `.json` (ranked trendsetters),
-  `opportunities.json`.
-- **Web feed:** [`web/swiss_outdoor.json`](web/swiss_outdoor.json) — UI-ready slices: `buys`, `cooling`,
-  `early_watch`, `graveyard`, `trendsetters`, inline `summary`.
+`cooling_watchlist.csv` (declining), `brand_influence.csv` + `.json` (ranked trendsetters),
+`opportunities.json`.
+- **Web feed:** `[web/swiss_outdoor.json](web/swiss_outdoor.json)` — UI-ready slices: `buys`, `cooling`,
+`early_watch`, `graveyard`, `trendsetters`, inline `summary`.
 - **Visuals:** `outputs/swiss_outdoor/figures/` (ranked, whitespace, hero radar).
 
 ## Ranked Opportunities
@@ -102,13 +87,15 @@ in signals.
 
 **Top 5 buys** (10 total — see `recommendations.csv`):
 
+
 | Rank | Opportunity | Evidence | Confidence (transfer) |
 | --- | --- | --- | --- |
-| 1 | Integrated filter-flask hydration | Stocked at REI + Bergfreunde, **absent** at Transa/Ochsner/Galaxus; US/UK/KR momentum rising, CH flat; r/Ultralight + r/trailrunning; Salomon trendsetter-backed | high (78.8/100) |
-| 2 | Single-vessel water filtration | REI stocks, absent in CH; r/Ultralight + r/SwissHiking hut-culture signal; US search rising | high (70.0/100) |
-| 3 | PFAS-free repairable shells | EU regulation-driven (DE search), Bergfreunde/Transa partial; r/Ultralight; Arc'teryx leadership | high (79.5/100) |
-| 4 | Challenger trail-running brands | REI stocks, absent CH; r/trailrunning (Mount to Coast); UTMB 2026 event anticipation | high (72.2/100) |
-| 5 | Smarter-light minimal-frame packs | REI + Bergfreunde stock, thin at Transa; “smarter light” narrative on r/Ultralight | high (71.8/100) |
+| 1 | [Integrated filter-flask hydration](https://www.rei.com/search?q=filter%20flask) | Stocked at [REI](https://www.rei.com/search?q=filter%20flask) + [Bergfreunde](https://www.bergfreunde.de/filter-flask/), **absent** at Transa/Ochsner/Galaxus; [US/UK/KR search rising](https://trends.google.com/trends/explore?q=filter%20flask&geo=US), CH flat; [r/Ultralight](https://reddit.com/r/Ultralight) + [r/trailrunning](https://reddit.com/r/trailrunning); Salomon trendsetter-backed | high (78.8/100) |
+| 2 | [Single-vessel water filtration](https://www.rei.com) | [REI](https://www.rei.com) stocks, absent in CH; [r/Ultralight](https://reddit.com/r/Ultralight) + [r/SwissHiking](https://reddit.com/r/SwissHiking) hut-culture signal; [US search rising](https://trends.google.com/trends/explore?q=filter%20bottle&geo=US) | high (70.0/100) |
+| 3 | [PFAS-free repairable shells](https://www.bergfreunde.de) | EU regulation-driven ([DE search](https://trends.google.com/trends/explore?q=PFAS%20free%20jacket&geo=DE)), [Bergfreunde](https://www.bergfreunde.de)/[Transa](https://www.transa.ch) partial; [r/Ultralight](https://reddit.com/r/Ultralight); Arc'teryx leadership | high (79.5/100) |
+| 4 | [Challenger trail-running brands](https://www.rei.com) | [REI](https://www.rei.com) stocks, absent CH; [r/trailrunning](https://reddit.com/r/trailrunning) ([Mount to Coast](https://trends.google.com/trends/explore?q=Mount%20to%20Coast&geo=US)); [UTMB 2026](https://utmb.world) event anticipation | high (72.2/100) |
+| 5 | [Smarter-light minimal-frame packs](https://www.rei.com) | [REI](https://www.rei.com) + [Bergfreunde](https://www.bergfreunde.de) stock, thin at [Transa](https://www.transa.ch); “smarter light” narrative on [r/Ultralight](https://reddit.com/r/Ultralight) | high (71.8/100) |
+
 
 Ranks 6–10 (monitor / pilot tier): carbon-plate trail shoes, technical-aesthetic apparel (gorpcore,
 luxury-trickle), women's gravel & trail gear, trail nutrition, kids' trail footwear.
@@ -140,22 +127,24 @@ Transa/Ochsner/Galaxus, r/trailrunning, r/Ultralight, r/SwissHiking, Google Tren
 The engine is generic; only scenario YAML changes. Proven by `uk_beauty_stub` — the **same pipeline**
 surfaces PDRN salmon-DNA serum (KR→UK transfer, 73.5/100) as the top beauty opportunity.
 
-| Change | Edit | Rerun |
-| --- | --- | --- |
-| New country | `target_market`, `reference_markets` | `collect_offline` + `pipeline` |
-| New vertical | `categories`, `community_sources`, `transfer_profile` weights | same |
-| New competitors | `local_competitors`, `reference_retailers` | same |
-| Stricter filtering | `transfer_profile.discard_threshold`, weights | `pipeline` only |
-| New source type | add a connector in `src/connectors/` + register | same |
-| Web UI refresh | — | `export_web.py` after `pipeline` |
 
-See [`config/scenarios/_template.yaml`](config/scenarios/_template.yaml) (every field commented).
+| Change             | Edit                                                          | Rerun                            |
+| ------------------ | ------------------------------------------------------------- | -------------------------------- |
+| New country        | `target_market`, `reference_markets`                          | `collect_offline` + `pipeline`   |
+| New vertical       | `categories`, `community_sources`, `transfer_profile` weights | same                             |
+| New competitors    | `local_competitors`, `reference_retailers`                    | same                             |
+| Stricter filtering | `transfer_profile.discard_threshold`, weights                 | `pipeline` only                  |
+| New source type    | add a connector in `src/connectors/` + register               | same                             |
+| Web UI refresh     | —                                                             | `export_web.py` after `pipeline` |
+
+
+See `[config/scenarios/_template.yaml](config/scenarios/_template.yaml)` (every field commented).
 
 ## Known Limitations
 
 - Demo runs on committed **seed snapshots** (Claude-research-assisted) for `competitor_assortment` and
-  `culture_context`; live connectors exist for `search_trends` (pytrends) and `community_forum` (praw)
-  but are run offline before the demo. Seed values are illustrative, not a live market pull.
+`culture_context`; live connectors exist for `search_trends` (pytrends) and `community_forum` (praw)
+but are run offline before the demo. Seed values are illustrative, not a live market pull.
 - Transfer scoring uses Claude when a key is present, else a transparent rule-based fallback.
 - `trade_publication` (ISPO) and autonomous LLM opportunity *discovery* are documented but not built.
 - Single category family (outdoor) implemented; beauty is a 2-opportunity stub.
@@ -175,11 +164,10 @@ src/
   score.py                  deterministic composite, cooling/early-watch routing, discard rules
   enrich.py                 Claude transfer-dimension scoring + narrative (+ deterministic fallback)
   pipeline.py               orchestrate → CSV/JSON exports + summary.md
-  report.py                 notebook plots/tables
+  report.py                 plot/table helpers (optional)
 scripts/export_web.py       slice pipeline artifacts → web/<scn>.json for the dashboard
 web/*.json                  committed web feeds (swiss_outdoor, uk_beauty_stub)
 site/                       TanStack Start dashboard (Lovable)
-notebooks/dashboard.ipynb   the notebook demo
 ```
 
 Data flow: **connectors → normalize (schema) → dedup → brand influence → score → enrich (transfer +
