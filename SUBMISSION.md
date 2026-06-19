@@ -64,7 +64,7 @@ python scripts/export_web.py uk_beauty_stub
 by `brand_influence.py` from collab gravity, community authority, lead time, cross-market spread, and
 reference-retailer rank.
 - **Languages:** English (+ German/CH local vocabulary via r/SwissHiking).
-- **External:** Google Trends, Reddit API, retailer sites, Claude API. All optional — committed seed snapshots make the demo reproducible offline.
+- **External:** Google Trends, Reddit API, retailer sites, Claude API. 
 
 ## Outputs
 
