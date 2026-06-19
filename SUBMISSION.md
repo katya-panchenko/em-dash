@@ -72,6 +72,9 @@ python -m src.pipeline --scenario config/scenarios/uk_beauty_stub.yaml
 - **Structured data:** `outputs/swiss_outdoor/signals.csv`, `recommendations.csv`,
   `cooling_watchlist.csv` (declining), `brand_influence.csv` (ranked trendsetters), `opportunities.json`.
 - **Visuals:** `outputs/swiss_outdoor/figures/` (ranked, whitespace, hero radar).
+- **Web app:** [`site/`](site/) — a React/TanStack dashboard (built with Lovable) that fetches the live
+  `web/swiss_outdoor.json` feed and renders buy signals, **downward trends**, **trendsetters**, early
+  watch, whitespace map, and graveyard. Run: `cd site && bun install && bun dev`.
 
 ## Ranked Opportunities
 
