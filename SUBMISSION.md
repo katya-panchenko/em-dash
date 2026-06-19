@@ -81,10 +81,17 @@ explainer. Loads `[web/swiss_outdoor.json](web/swiss_outdoor.json)` (regenerated
 
 ## Ranked Opportunities
 
-Composite: `raw = 0.35·gap + 0.30·corroboration + 0.20·velocity + 0.15·commercial_proof`, then
-`final = raw · transfer_score/100`. Confidence = high (≥3 source types + local gap) / medium (2) / low.
-Trendsetter-backed opps get a +0.05 raw boost when a tracked brand with influence ≥ 0.5 is corroborated
-in signals.
+$$
+\text{raw} = 0.35\,g + 0.30\,c + 0.20\,v + 0.15\,p
+$$
+
+$$
+\text{final} = \text{raw} \times \frac{s_{\text{transfer}}}{100}
+$$
+
+where $g$ = local coverage gap, $c$ = corroboration, $v$ = velocity, $p$ = commercial proof, and $s_{\text{transfer}}$ = transfer score (0–100).
+
+**Confidence:** high ($\geq 3$ source types + local gap) · medium (2) · low (trend-only). Trendsetter-backed opportunities get a $+0.05$ raw boost when a tracked brand with influence $\geq 0.5$ is corroborated in signals.
 
 **Top 5 buys** (10 total — see `recommendations.csv`):
 
