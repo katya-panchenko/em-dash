@@ -1,4 +1,6 @@
-# Submission — TellTale
+# Submission — Telltale
+
+**Telltale** converts search spikes, forum chatter, and competitor gaps into clear stocking decisions — buy, hold, or walk away. What sets us apart: we don't just flag what's rising — we score local shelf gaps, cross-market transferability, and trendsetter pull, while surfacing what's cooling and filtering runway noise, so buyers get a defensible buy/hold/exit call, not another trend deck.
 
 A **scenario-driven retail opportunity radar**. Pitched on Swiss outdoor, but the engine is generic:
 every retailer, community, market, and transfer rule lives in a scenario YAML, not in code. Swap the
