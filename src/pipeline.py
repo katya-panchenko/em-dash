@@ -142,7 +142,7 @@ def run(scenario_path: str, use_llm: bool = True) -> dict:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Alpine Signal Radar pipeline")
+    ap = argparse.ArgumentParser(description="TellTale pipeline")
     ap.add_argument("--scenario", default="config/scenarios/swiss_outdoor.yaml")
     ap.add_argument("--no-llm", action="store_true", help="skip Claude; deterministic enrichment only")
     args = ap.parse_args()

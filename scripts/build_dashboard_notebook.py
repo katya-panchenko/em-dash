@@ -15,7 +15,7 @@ code = nbf.v4.new_code_cell
 
 cells = [
     md(
-        "# 🏔️ Alpine Signal Radar — Opportunity Dashboard\n\n"
+        "# 🏔️ TellTale — Opportunity Dashboard\n\n"
         "A **scenario-driven** retail opportunity radar. Pitched on Swiss outdoor, but the engine is "
         "generic — every retailer/community/market specific lives in `config/scenarios/*.yaml`, not in code.\n\n"
         "**Pipeline:** signals → normalize → dedup → score → transfer (CH/DACH) → action.  \n"

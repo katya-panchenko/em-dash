@@ -1,4 +1,4 @@
-"""Normalized data contract for Alpine Signal Radar.
+"""Normalized data contract for TellTale.
 
 Every connector emits ``SignalRow``s regardless of source. The pipeline clusters
 them into ``Opportunity`` objects, scores them deterministically, and exports

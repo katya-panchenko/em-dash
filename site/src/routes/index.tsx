@@ -50,13 +50,13 @@ const DATA_URL =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alpine Signal Radar — Swiss Outdoor Retail" },
+      { title: "TellTale — Swiss Outdoor Retail" },
       {
         name: "description",
         content:
           "Buy signals, cooling categories, and trendsetter intelligence for Swiss outdoor retail buyers.",
       },
-      { property: "og:title", content: "Alpine Signal Radar" },
+      { property: "og:title", content: "TellTale" },
       {
         property: "og:description",
         content: "Swiss outdoor retail opportunity detection.",
@@ -307,7 +307,7 @@ function Header({ marketLabel }: { marketLabel?: string }) {
           <Mountain size={16} />
         </div>
         <div className="text-[15px] font-semibold" style={{ color: C.ink }}>
-          Alpine Signal Radar
+          TellTale
         </div>
         <span
           className="ml-2 rounded px-1.5 py-0.5 text-[10px] font-medium"
@@ -1094,7 +1094,7 @@ function Footer() {
       className="mt-12 flex flex-wrap items-center justify-between gap-2 pt-4 text-[12px]"
       style={{ borderTop: `1px solid ${C.rule}`, color: C.inkFaint }}
     >
-      <span>Alpine Signal Radar — Swiss outdoor retail opportunity scan</span>
+      <span>TellTale — Swiss outdoor retail opportunity scan</span>
       <span className="flex items-center gap-3">
         <a href="https://www.transa.ch" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: C.inkSoft }}>
           Transa

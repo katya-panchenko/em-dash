@@ -1,4 +1,4 @@
-# Submission — Alpine Signal Radar
+# Submission — TellTale
 
 A **scenario-driven retail opportunity radar**. Pitched on Swiss outdoor, but the engine is generic:
 every retailer, community, market, and transfer rule lives in a scenario YAML, not in code. Swap the

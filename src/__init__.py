@@ -1,4 +1,4 @@
-"""Alpine Signal Radar — a scenario-driven retail opportunity detector.
+"""TellTale — a scenario-driven retail opportunity detector.
 
 Pitch ≠ architecture: the engine is generic; all retailer/community/market
 specifics live in scenario profiles under ``config/scenarios/``.

@@ -2,7 +2,7 @@
 
 Build the retail radar that spots the next outdoor opportunity before it becomes obvious.
 
-> ## ▶️ Our submission: Alpine Signal Radar
+> ## ▶️ Our submission: TellTale
 > A scenario-driven opportunity radar — the engine is generic, the Swiss outdoor specifics live in
 > `config/scenarios/`. See [`SUBMISSION.md`](SUBMISSION.md) for the full write-up and
 > [`docs/research-brief.md`](docs/research-brief.md) for the market research behind it.
