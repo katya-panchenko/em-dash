@@ -1,159 +1,215 @@
-# HerCode Zenline Hackathon
+# TellTale — a scenario-driven retail opportunity radar
 
-Build the retail radar that spots the next outdoor opportunity before it becomes obvious.
+> **HerCode × Zenline AI — B2B challenge submission.**
+> Turn noisy market signals into one clear answer: *what should the retailer stock, test, or monitor next?*
+> The engine is generic — Swiss outdoor is just the loaded scenario. Swap the YAML, retarget any
+> market or category.
 
-> ## ▶️ Our submission: TellTale
-> A scenario-driven opportunity radar — the engine is generic, the Swiss outdoor specifics live in
-> `config/scenarios/`. See [`SUBMISSION.md`](SUBMISSION.md) for the full write-up and
-> [`docs/research-brief.md`](docs/research-brief.md) for the market research behind it.
->
-> ```bash
-> python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
-> python -m src.collect_offline --scenario config/scenarios/swiss_outdoor.yaml
-> python -m src.pipeline       --scenario config/scenarios/swiss_outdoor.yaml
-> jupyter notebook notebooks/dashboard.ipynb
-> ```
+**🔗 Live dashboard:** https://melodious-kashata-b0700b.netlify.app
 
-## Challenge
+```bash
+python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+python -m src.collect_offline --scenario config/scenarios/swiss_outdoor.yaml
+python -m src.pipeline        --scenario config/scenarios/swiss_outdoor.yaml
+jupyter notebook notebooks/dashboard.ipynb
+```
 
-Retail teams are flooded with weak signals: TikTok clips, search spikes, niche communities, new materials, marketplace bestsellers, competitor drops, weather shifts, and regional lifestyle changes. The hard part is not finding more data. It is turning noisy signals into one clear answer: what should a retailer do next?
+> The team write-up, approach summary, inputs, known limitations, and architecture notes live in
+> **[`SUBMISSION.md`](SUBMISSION.md)**. This README covers the rest of the required deliverables and
+> where to find each one.
 
-Your mission is to build a reusable system that detects emerging product, material, and brand opportunities from global and local market signals.
+---
 
-Use the shared scenario of a Swiss outdoor retailer to prove that the system works, but design it so the same method could be reused for another industry, market, product category, retailer, or brand.
+## Required deliverables — where to find them
 
-The best submissions are not one-off research reports. They show a repeatable flow where inputs can change and the method still works.
+| Deliverable | Location |
+| --- | --- |
+| Code, scripts, notebooks, app | [`src/`](src/), [`scripts/`](scripts/), [`notebooks/dashboard.ipynb`](notebooks/dashboard.ipynb), [`site/`](site/) |
+| Setup & run instructions | [Quickstart](#setup--run) below |
+| Evidence sources (with URLs) | [Evidence sources](#evidence-sources) below · per-opportunity `evidence_urls` in [`outputs/swiss_outdoor/recommendations.csv`](outputs/swiss_outdoor/recommendations.csv) · raw snapshots in [`data/seed/`](data/seed/) |
+| Ranked opportunities (confidence, risks, next actions) | [Ranked opportunities](#ranked-opportunities) below · full detail in [`recommendations.csv`](outputs/swiss_outdoor/recommendations.csv) |
+| Dashboard / visualization | [Live site](https://melodious-kashata-b0700b.netlify.app) · [`notebooks/dashboard.ipynb`](notebooks/dashboard.ipynb) · [`outputs/swiss_outdoor/figures/`](outputs/swiss_outdoor/figures/) |
+| Completed `SUBMISSION.md` | [`SUBMISSION.md`](SUBMISSION.md) |
+| Video walkthrough (optional) | _add link in [`SUBMISSION.md`](SUBMISSION.md) if recorded_ |
+| No committed secrets | `.env` is gitignored; see [Secrets](#secrets) |
 
-This is the **B2B challenge**: help the retailer decide what emerging products, materials, brands, or product features are worth stocking, testing, or monitoring. There is also a companion **B2C challenge** by Scandit, focused on the in-store shopper experience: [`raffaelefarinaro/hercode-scandit-challenge`](https://github.com/raffaelefarinaro/hercode-scandit-challenge).
+Challenge brief and judging rubric (unchanged from the organizers): [`docs/challenge.md`](docs/challenge.md),
+[`docs/evaluation.md`](docs/evaluation.md), [`docs/data-contract.md`](docs/data-contract.md).
 
-## Challenge Scenario
+---
 
-Detect promising emerging outdoor product, material, and brand opportunities for Switzerland or DACH. Think beyond "new product list": your system could uncover a rising product format, material, technology, feature, brand, supplier, or product gap.
+## Setup & run
 
-Your system should answer:
+**Requirements:** Python 3.11+ (built on 3.13). All dependencies are in
+[`requirements.txt`](requirements.txt).
 
-- What are the emerging product, material, or brand opportunities?
-- Where is the trend appearing first: US, Japan, Korea, Nordics, UK, DACH, Switzerland, or another market?
-- What evidence supports the opportunity?
-- Could the trend transfer into Switzerland or DACH?
-- What should the retailer test, buy, launch, or monitor next?
-- How reusable is the system beyond outdoor retail?
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 
-Start by asking what a Swiss outdoor retailer would actually want to know. For example:
+# Optional: live data + Claude reasoning. Runs fully offline without them
+# (committed seed snapshots + deterministic fallback).
+cp .env.example .env   # add ANTHROPIC_API_KEY and/or Reddit API creds
 
-- Which rising brands should the buying team watch, contact, or onboard?
-- Which product types are growing in other markets before they become obvious in Switzerland?
-- Which materials, technologies, or product features are becoming commercially meaningful?
-- Which price bands, formats, sizes, or use cases are undercovered by local retailers?
-- Which product, material, or brand gaps could create differentiation, margin, or customer loyalty?
-- Which trends are just noise, and which deserve a test, supplier conversation, or deeper analysis?
+# 1) collect signals → outputs/<scenario>/<source>.json cache
+python -m src.collect_offline --scenario config/scenarios/swiss_outdoor.yaml
+# 2) run the pipeline → signals.csv, recommendations.csv, opportunities.json, summary.md
+python -m src.pipeline        --scenario config/scenarios/swiss_outdoor.yaml
+# 3) open the dashboard notebook
+jupyter notebook notebooks/dashboard.ipynb
+```
 
-Based on those questions, define your own methodology: choose sources, collect evidence, score signals, assess Swiss/DACH transferability, and turn the best findings into clear retail actions.
+**Web dashboard (local):**
 
-## Event Timeline
+```bash
+cd site && bun install && bun dev     # fetches the web/<scenario>.json feed
+```
 
-- Event date: June 19, 2026
-- Meeting point: Zenline AI Office
-- 10:00 CEST: Yoga session at the lake
-- 10:45 CEST: Challenge reveal, Q&A, and kick-off
-- 11:15-16:30 CEST: Build session
-- 15:00 CEST: Pre-submission deadline
-- 16:30 CEST: Final submission deadline
-- 16:30 CEST: Miss Liquid Bar at the lake while the jury evaluates results
-- 17:45 CEST: Back in the office for finalist presentations and awards
+**Run it for a different vertical (same commands, different profile):**
 
-Teams should have 2-4 people. Discord is the main communication channel before and during the hackathon.
+```bash
+python -m src.collect_offline --scenario config/scenarios/uk_beauty_stub.yaml
+python -m src.pipeline        --scenario config/scenarios/uk_beauty_stub.yaml
+```
 
-Intro session deck: [`slides/hercode-zenline-hackathon-intro.pptx`](slides/hercode-zenline-hackathon-intro.pptx).
+---
 
-## What's In This Repo
+## What's in the repo
 
-- [`SUBMISSION.md`](SUBMISSION.md): fill this in before submitting your fork.
-- [`docs/challenge.md`](docs/challenge.md): deeper challenge brief and quality bar.
-- [`docs/data-contract.md`](docs/data-contract.md): suggested structured fields for signals and recommendations.
-- [`docs/evaluation.md`](docs/evaluation.md): judging rubric.
-- [`examples/signals.csv`](examples/signals.csv): minimal example signal-row shape.
-- [`slides/hercode-zenline-hackathon-intro.pptx`](slides/hercode-zenline-hackathon-intro.pptx): intro-session slide deck.
+```
+config/scenarios/   scenario profiles — swiss_outdoor, uk_beauty_stub, _template (every field commented)
+data/seed/          committed source snapshots → reproducible offline demo
+src/
+  schema.py         pydantic SignalRow / Opportunity / RecommendationRow + source-type enum
+  scenario.py       load + validate a profile
+  connectors/       search_trends · community_forum · competitor_assortment · culture_context · luxury_runway
+  collect_offline.py  run connectors → cache
+  dedup.py          cluster signals into opportunities (corroboration = confidence)
+  score.py          transparent composite + discard rules
+  enrich.py         Claude transfer scoring + narrative (+ deterministic fallback)
+  brand_influence.py  rank trendsetter brands
+  pipeline.py       orchestrate → CSV / JSON / summary
+  report.py         dashboard plots + tables
+notebooks/dashboard.ipynb   the demo notebook
+scripts/            export figures, build notebook, export web feed
+site/               React / TanStack web dashboard (deployed to Netlify)
+outputs/<scenario>/ generated artifacts (CSV, JSON, figures, summary.md)
+```
 
-## Required Deliverables
+Data flow: **connectors → normalize (schema) → dedup → score → enrich (transfer + narrative) →
+finalize (final score + discard) → rank → export → dashboard.**
 
-Submit a fork of this repository that contains:
+---
 
-- Your code, scripts, notebooks, app, dashboard, API, or workflow.
-- A completed [`SUBMISSION.md`](SUBMISSION.md).
-- Clear setup and run instructions.
-- Evidence sources used by your system, including URLs where possible.
-- A ranked list of detected opportunities with confidence, risks, and next actions.
-- An explanation or visualization of your dashboard or tool.
-- Optional but encouraged: a short video walkthrough of your tool or dashboard.
+## Dashboard / visualization
 
-Do not commit API keys, passwords, tokens, private datasets, or other secrets.
+- **Live web dashboard:** https://melodious-kashata-b0700b.netlify.app — buy signals, downward
+  (cooling) trends, trendsetter brands, early-watch, whitespace map, and the discarded-noise graveyard.
+- **Notebook:** [`notebooks/dashboard.ipynb`](notebooks/dashboard.ipynb) — ranked chart, hero card +
+  transfer radar, blank-shelf table, whitespace map, graveyard, category toggle, cross-scenario view.
+- **Static figures:** [`outputs/swiss_outdoor/figures/`](outputs/swiss_outdoor/figures/) — `ranked.png`,
+  `whitespace.png`, `hero_radar.png`.
 
-## Submission Process
+### Updating the live website (for now)
 
-1. Fork this repository into your own GitHub account or team organization.
-2. Build your solution in the fork.
-3. Update [`SUBMISSION.md`](SUBMISSION.md) with your team name, approach, run instructions, outputs, and demo links.
-4. Push all final work to your fork before 16:30 CEST on June 19, 2026.
-5. Submit the fork URL through the channel or form announced by the organizers.
+The deployed site does **not** rebuild from the pipeline automatically. At runtime it fetches a single
+JSON feed straight from GitHub:
 
-The jury will review the code and submission artifacts from your fork.
+```
+https://raw.githubusercontent.com/katya-panchenko/em-dash/main/web/swiss_outdoor.json
+```
 
-## What You Can Build
+(hardcoded as `DATA_URL` in [`site/src/routes/index.tsx`](site/src/routes/index.tsx)). So to push new
+numbers to the live dashboard, regenerate that feed and commit it to `main`:
 
-You can build any useful part of the opportunity-detection system. Pick the part where your team can create the most leverage:
+```bash
+# 1) regenerate the pipeline outputs
+python -m src.collect_offline --scenario config/scenarios/swiss_outdoor.yaml
+python -m src.pipeline        --scenario config/scenarios/swiss_outdoor.yaml
 
-- Custom research agents or scripts.
-- Scrapers for retailer, marketplace, social, or publication sources.
-- Dashboards or review UIs for ranking signals.
-- Notebooks for scoring, clustering, or enrichment.
-- APIs that expose normalized results.
-- Evidence deduplication, source credibility, or opportunity-scoring tools.
-- Report generators that convert structured evidence into a business-ready recommendation.
+# 2) rebuild the web feed from outputs/ → web/swiss_outdoor.json
+python scripts/export_web.py swiss_outdoor
 
-Pick one direction and make it work well. One useful capability that runs live is better than four half-finished ideas.
+# 3) commit + push the updated feed to main (the site reads it live — no Netlify rebuild needed)
+git add web/swiss_outdoor.json
+git commit -m "Update web feed"
+git push origin main
+```
 
-A strong demo does not need to replace the whole flow. Improving one source, analysis step, scoring module, API, UI, or handoff artifact can be enough if the result is reusable and well demonstrated.
+The site picks up the change on the next page load (allow a minute or two for the raw-GitHub CDN cache).
+No `bun build` or redeploy is required for a data-only update — only a code/UI change in `site/` needs a
+redeploy.
 
-## Demo Target
+---
 
-By the end, the jury should be able to open your fork and understand:
+## Ranked opportunities
 
-- What product, material, or brand opportunity your system found.
-- Why the opportunity matters now.
-- Which sources support it.
-- Whether it can realistically work in Switzerland or DACH.
-- What the retailer should test next.
-- How your approach could run again for another category or market.
+Composite score: `raw = 0.35·gap + 0.30·corroboration + 0.20·velocity + 0.15·commercial_proof`,
+then `final = raw · transfer_score/100`. Confidence = high (≥3 source types + local gap) / medium / low.
+Full evidence URLs and per-row detail are in
+[`recommendations.csv`](outputs/swiss_outdoor/recommendations.csv).
 
-For the final session, be ready to present a short live demo and answer questions. Keep the demo focused on what works: the jury can inspect technical depth from your fork, code, data, and artifacts.
+| # | Opportunity | First market | Transfer | Conf. | Next action | Main risk |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Integrated filter-flask hydration | US | 80/100 | high | Initial buy of Salomon filter-flask SKUs for trail-running + hut hikers ahead of the CH curve | Filter efficacy/regulatory + consumable-replacement logistics |
+| 2 | Single-vessel water filtration | US | 71/100 | high | Trial a focused single-vessel bottle range tied to day-hiking / hut routes | No clear anchor brand; rides the filter-flask macro |
+| 3 | Challenger trail-running brands | US | 72/100 | high | Secure EU distribution for one race-proven challenger ahead of UTMB 2026 | Supply timing could miss the event spike |
+| 4 | PFAS-free repairable shells | DE | 77/100 | high | Build PFAS-free repairable shell range (Arc'teryx-led) + repair-service offer | Premium price needs substantiated durability claims |
+| 5 | Smarter-light minimal-frame packs | US | 72/100 | high | Expand sub-1kg framed packs to close the partial Transa gap | Partial coverage → incremental demand may be thin |
 
-## Suggested Evidence Sources
+Opportunities #6–#10 (carbon-plate shoes, gorpcore technical-aesthetic apparel, women's gravel/trail,
+kids' trail footwear, trail nutrition) and the full risk/action/evidence detail are in
+[`recommendations.csv`](outputs/swiss_outdoor/recommendations.csv).
 
-Combine multiple signal types where possible:
+**Beyond rising buys, the system also surfaces:**
+- **Cooling watchlist** (hold reorders): hydration bladder packs, maximalist stack-height shoes,
+  legacy PFAS membrane hardshells — [`cooling_watchlist.csv`](outputs/swiss_outdoor/cooling_watchlist.csv).
+- **Trendsetter brands** by computed influence: Salomon, Arc'teryx, On, then luxury houses —
+  [`brand_influence.csv`](outputs/swiss_outdoor/brand_influence.csv).
+- **Graveyard** of signals discarded as noise (single-source / failed transfer / runway-only) — in
+  [`opportunities.json`](outputs/swiss_outdoor/opportunities.json).
 
-- Web research: publications, brand pages, retailer listings, forums, outdoor events, market articles.
-- Search trends: search momentum, rising queries, local vocabulary, and market comparisons.
-- Social signals: creator visibility, hashtags, product usage, and weak lifestyle signals.
-- Marketplace or competitor scans: product formats, brands, prices, bestseller or ranking hints, and assortment examples.
-- Participant/custom data: scraper output, API pulls, notebooks, manual store checks, CSV files, or Google Sheets.
+---
 
-See [`docs/data-contract.md`](docs/data-contract.md) for a recommended output schema.
+## Evidence sources
 
-## Evaluation
+Signals are fused across five source types; each signal row carries its own `url`, market, and notes
+(schema in [`docs/data-contract.md`](docs/data-contract.md), raw snapshots in
+[`data/seed/swiss_outdoor/`](data/seed/swiss_outdoor/)).
 
-The jury will evaluate:
+| Source type | What it provides | Examples |
+| --- | --- | --- |
+| `search_trends` | Cross-market momentum (origin rising, CH flat = open transfer window) | Google Trends (US/UK/DE/JP/KR/CN vs CH) |
+| `community_forum` | Legitimacy + weak signals, local CH vocabulary | r/trailrunning, r/Ultralight, r/SwissHiking |
+| `competitor_assortment` | Local-vs-reference shelf gap, brand, bestseller rank | Transa, Ochsner Sport, Galaxus · REI, Bergfreunde |
+| `culture_context` | Leading indicators before search/sales | viewership, emerging brands, event anticipation (UTMB, UCI) |
+| `luxury_runway` | High→mass trickle-down, collab gravity | runway × technical collabs (Vogue Business, Hypebeast) |
 
-- Signal detection: can the system find a real emerging product, material, or brand opportunity from messy sources?
-- Evidence quality: are trends backed by sources, not guesses?
-- Transferability: does the system reason whether a global trend can work in Switzerland or DACH?
-- Business actionability: does the output lead to a clear retail decision?
-- Reusability: could the same flow be reused for another industry, market, or category with input changes?
-- Technical architecture: is the system robust, understandable, and practical to run during the hackathon?
+Per-opportunity evidence URLs are in the `evidence_urls` column of
+[`recommendations.csv`](outputs/swiss_outdoor/recommendations.csv) and in
+[`opportunities.json`](outputs/swiss_outdoor/opportunities.json).
 
-More detail is available in [`docs/evaluation.md`](docs/evaluation.md).
+---
 
-## Organizers And Partners
+## Reusability
 
-- Organizers: Zenline AI, HerCode
-- Partners: Scandit, Miss Liquid
+The engine is generic; only the scenario YAML changes. Proven by `uk_beauty_stub`, where the **same
+pipeline** surfaces PDRN salmon-DNA serum (KR→UK transfer) as the top beauty opportunity.
+
+| Change | Edit | Rerun |
+| --- | --- | --- |
+| New country | `target_market`, `reference_markets` | `collect_offline` + `pipeline` |
+| New vertical | `categories`, `community_sources`, `transfer_profile` weights | same |
+| New competitors | `local_competitors`, `reference_retailers` | same |
+| Stricter filtering | `transfer_profile.discard_threshold`, weights | `pipeline` only |
+| New source type | add a connector in `src/connectors/` + register | same |
+
+See [`config/scenarios/_template.yaml`](config/scenarios/_template.yaml) — every field commented.
+
+---
+
+## Secrets
+
+No API keys, tokens, or credentials are committed. `.env` is gitignored (only
+[`.env.example`](.env.example) is tracked). All external services — Google Trends, Reddit API, Claude
+API — are optional; the demo is fully reproducible offline from committed seed snapshots.
