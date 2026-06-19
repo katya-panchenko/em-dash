@@ -11,5 +11,8 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Client-only app (data fetched in the browser) → emit a static SPA shell so it
+    // can be hosted as plain static files anywhere (Netlify drop, Vercel, GitHub Pages).
+    spa: { enabled: true },
   },
 });
